@@ -33,7 +33,32 @@
 
 ## Sobre o Projeto
 
-Uma breve descrição do contexto de negócio, objetivos e metodologia deste projeto.
+Este repositório reúne a análise exploratória de dados clínicos de pacientes de UTI coletados no estudo TCR.
+O objetivo é documentar o perfil da amostra, gerar tabelas e gráficos de apoio e identificar fatores associados ao desfecho clínico padronizado.
+
+### Objetivo do Estudo
+
+- Descrever características demográficas e clínicas dos pacientes.
+- Analisar associações entre intervenções clínicas e o desfecho (óbito / alta / transferência).
+- Gerar artefatos visuais e tabelas que a equipe clínica possa consultar diretamente.
+
+### Onde encontrar os resultados
+
+- `reports/figures/` — gráficos exploratórios gerados.
+- `reports/figures/README.md` — orientações para entender cada figura.
+- `reports/descriptive/` — tabelas CSV com frequências e resumos descritivos.
+- `reports/descriptive/README.md` — explicação de cada tabela.
+- `reports/association_results.csv` — resultados brutos dos testes de associação.
+- `reports/association_results.md` — interpretação dos testes estatísticos e do valor-p.
+- `data/processed/tcr_patients_clean.parquet` — base de dados limpa usada nas análises.
+- `notebooks/eda/01_descriptive_stats.ipynb` — geração de tabelas descritivas.
+- `notebooks/eda/02_association_tests.ipynb` — execução de testes de associação.
+
+### Autor
+
+| Nome | Email |
+|------|-------|
+| **Rodrigo Watanabe Pisaia** | rodrigo.watanabe0107@gmail.com |
 
 ### Documentação
 
