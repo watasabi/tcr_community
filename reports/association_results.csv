@@ -1,0 +1,9 @@
+variable,target,test,statistic,p_value,n,note
+comorbidades,desfecho_padronizado,chi2,7.685154551317783,0.10381651657543318,205,
+ventilacao_mecanica,desfecho_padronizado,chi2,18.506856449553144,0.10114490342859517,205,
+drogas_vasoativas,desfecho_padronizado,chi2,18.02061088674802,0.001222704174458117,205,
+transfusao_sanguinea,desfecho_padronizado,chi2,4.62403478080942,0.32809243273822736,205,
+escala_apache_ii,desfecho_padronizado,kruskal,47.06186343482759,1.480335808767319e-09,205,
+hemodialise,desfecho_padronizado,chi2,4.787499944406642,0.30980429859949893,205,
+procedimento_cirurgico,desfecho_padronizado,chi2,5.9676095254032,0.20158030731486504,205,
+cuidados_paliativos,desfecho_padronizado,chi2,29.096073645331312,7.47383397100139e-06,205,

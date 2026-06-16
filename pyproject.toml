@@ -1,16 +1,37 @@
 [project]
 name = "tcr-community"
 version = "0.1.0"
-description = "Add your description here"
+description = "Análise de dados clínicos TCR/UTI"
 readme = "README.md"
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "ipykernel>=7.3.0",
+    "numpy>=2.0.0",
+    "openpyxl>=3.1.5",
+    "pandas>=2.2.0",
+    "pyarrow>=18.0.0",
+    "scipy>=1.14.0",
+]
 
 [dependency-groups]
 dev = [
+    "pytest>=8.0.0",
     "ruff>=0.15.17",
 ]
 
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/tcr_community"]
+
+[tool.hatch.build.targets.wheel.sources]
+"src/tcr_community" = "tcr_community"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
 
 [tool.ruff]
 line-length = 79
