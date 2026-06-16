@@ -61,3 +61,15 @@ As outras variáveis avaliadas não apresentaram evidência suficiente para reje
 - Veja `reports/association_results.csv` para detalhes completos.
 - Os testes significativos ajudam a identificar fatores clínicos que estão relacionados ao desfecho.
 - Compare essas conclusões com os gráficos em `reports/figures/` para ver os padrões visuais.
+
+## Gerar relatório HTML interativo
+
+Para facilitar a leitura, existe um gerador simples que monta um HTML com previews e estatísticas dos CSVs em `reports/`.
+
+Executar na raiz do projeto:
+
+```bash
+python3 reports/generate_profile_report.py
+```
+
+Isso criará `reports/profile_report.html` com uma seção para `association_results.csv` e para todos os CSVs em `reports/descriptive/`.
