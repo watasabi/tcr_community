@@ -4,6 +4,7 @@ Esta proposta tem como objetivo estruturar a análise de dados do projeto de pes
 além da estatística tradicional. A abordagem proposta utiliza técnicas de Ciência de Dados e
 Estatística Multivariada para extrair o máximo de valor dos dados coletados, identificando
 padrões complexos e perfis ocultos de pacientes.
+
 Fase 1: Análise Estatística Descritiva e Inferencial (Escopo Base)
 Esta fase garante o cumprimento de todos os requisitos metodológicos aprovados no projeto
 de pesquisa, entregando as métricas e testes exatos necessários para a caracterização inicial.
@@ -16,6 +17,7 @@ Tempo de internação e Faixa Etária).
 Qui-quadrado de Pearson ou Exato de Fisher) para validar estatisticamente as hipóteses
 do estudo, como a relação direta entre variáveis clínicas (ex: presença de comorbidades) e
 o desfecho clínico (alta/óbito).
+
 Fase 2: Estatística Multivariada e Detecção de Perfis (Aprofundamento)
 Nesta etapa, aplicaremos algoritmos de Machine Learning para identificar grupos (clusters)
 sociodemográficos e clínicos, elevando o nível de profundidade da pesquisa.

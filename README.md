@@ -96,6 +96,26 @@ Este projeto segue uma estrutura padronizada para garantir reprodutibilidade.
 └── README.md               # Documentação principal
 ```
 
+## ✅ Resultados já desenvolvidos
+
+O projeto já possui análises exploratórias e tabelas prontas para leitura:
+
+- `reports/descriptive/` — tabelas CSV com frequências e resumos descritivos
+- `reports/descriptive/README.md` — guia rápido para entender cada tabela
+- `reports/association_results.csv` — resultados brutos de testes de associação
+- `reports/association_results.md` — resumo interpretável dos testes χ²/Kruskal-Wallis
+- `reports/figures/` — gráficos exploratórios gerados para visualização
+- `reports/figures/README.md` — lista dos gráficos e como usar cada um
+- `data/processed/tcr_patients_clean.parquet` — base limpa usada para análise
+- `notebooks/eda/01_descriptive_stats.ipynb` — geração de tabelas descritivas
+- `notebooks/eda/02_association_tests.ipynb` — execução de testes de associação
+
+### Como navegar
+
+1. Leia `reports/descriptive/README.md` para começar pelas tabelas.
+2. Veja `reports/association_results.md` para os resultados dos testes de associação.
+3. Abra as imagens em `reports/figures/` para visualização de padrões clínicos.
+
 <p align="right">(<a href="#readme-top">voltar ao topo</a>)</p>
 
 ## ⚙️ Configuração de Ambiente
