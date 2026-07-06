@@ -1,0 +1,8 @@
+intervencao,sim,nao,pct_sim
+Ventilação mecânica,162,43,0.7902439024390244
+Sedação,149,56,0.7268292682926829
+Drogas vasoativas,129,76,0.6292682926829268
+Hemodiálise,43,162,0.2097560975609756
+Transfusão sanguínea,61,144,0.2975609756097561
+Procedimento cirúrgico,45,160,0.21951219512195122
+Dispositivos invasivos,187,18,0.9121951219512195

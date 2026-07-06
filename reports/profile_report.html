@@ -13,10 +13,12 @@ th{background:#f7f7f7}
 .small{font-size:0.9em;color:#555}
 .meta{font-size:0.9em;color:#666;margin-bottom:6px}
 .preview{max-height:240px;overflow:auto;border:1px solid #eee;padding:8px;background:#fafafa}
+.plot{margin-top:12px;margin-bottom:12px}
+.note{font-size:0.9em;color:#666}
 </style>
 </head>
 <body>
-<h1>Relatório de Dados — gerado 2026-06-16 19:08:53</h1><div class="section"><h2>Association results</h2><div class="meta">Fonte: reports/association_results.csv, linhas: 8</div><details open><summary class="small">Preview e estatísticas</summary><h3 class="small">Preview (primeiras linhas)</h3><table class="dataframe preview-table">
+<h1>Relatório de Dados — gerado 2026-07-06 13:34:14</h1><div class="section"><h2>Association results</h2><div class="meta">Fonte: reports/association_results.csv, linhas: 8</div><script src="https://cdn.plot.ly/plotly-latest.min.js"></script><details open><summary class="small">Preview, estatísticas e plots (client-side)</summary><h3 class="small">Preview (primeiras linhas)</h3><table class="dataframe preview-table">
   <thead>
     <tr style="text-align: right;">
       <th>variable</th>
@@ -36,7 +38,7 @@ th{background:#f7f7f7}
       <td>7.685155</td>
       <td>1.038165e-01</td>
       <td>205</td>
-      <td>NaN</td>
+      <td></td>
     </tr>
     <tr>
       <td>ventilacao_mecanica</td>
@@ -45,7 +47,7 @@ th{background:#f7f7f7}
       <td>18.506856</td>
       <td>1.011449e-01</td>
       <td>205</td>
-      <td>NaN</td>
+      <td></td>
     </tr>
     <tr>
       <td>drogas_vasoativas</td>
@@ -54,7 +56,7 @@ th{background:#f7f7f7}
       <td>18.020611</td>
       <td>1.222704e-03</td>
       <td>205</td>
-      <td>NaN</td>
+      <td></td>
     </tr>
     <tr>
       <td>transfusao_sanguinea</td>
@@ -63,7 +65,7 @@ th{background:#f7f7f7}
       <td>4.624035</td>
       <td>3.280924e-01</td>
       <td>205</td>
-      <td>NaN</td>
+      <td></td>
     </tr>
     <tr>
       <td>escala_apache_ii</td>
@@ -72,7 +74,7 @@ th{background:#f7f7f7}
       <td>47.061863</td>
       <td>1.480336e-09</td>
       <td>205</td>
-      <td>NaN</td>
+      <td></td>
     </tr>
     <tr>
       <td>hemodialise</td>
@@ -81,7 +83,7 @@ th{background:#f7f7f7}
       <td>4.787500</td>
       <td>3.098043e-01</td>
       <td>205</td>
-      <td>NaN</td>
+      <td></td>
     </tr>
     <tr>
       <td>procedimento_cirurgico</td>
@@ -90,7 +92,7 @@ th{background:#f7f7f7}
       <td>5.967610</td>
       <td>2.015803e-01</td>
       <td>205</td>
-      <td>NaN</td>
+      <td></td>
     </tr>
     <tr>
       <td>cuidados_paliativos</td>
@@ -99,10 +101,798 @@ th{background:#f7f7f7}
       <td>29.096074</td>
       <td>7.473834e-06</td>
       <td>205</td>
-      <td>NaN</td>
+      <td></td>
     </tr>
   </tbody>
-</table><h3 class="small">Estatísticas sumarizadas</h3><div class="small">Erro ao ler association_results.csv: NDFrame.describe() got an unexpected keyword argument &#x27;datetime_is_numeric&#x27;</div></div><div class="section"><h2>Descriptive CSVs</h2><h3>clin_causa_obito.csv</h3><div class="meta">linhas: 76, colunas: 3</div><details><summary class="small">Preview e estatísticas</summary><table class="dataframe preview-table">
+</table><h3 class="small">Estatísticas sumarizadas</h3><table border="1" class="dataframe desc-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count</th>
+      <th>unique</th>
+      <th>top</th>
+      <th>freq</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>50%</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>variable</th>
+      <td>8</td>
+      <td>8</td>
+      <td>comorbidades</td>
+      <td>1</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>target</th>
+      <td>8</td>
+      <td>1</td>
+      <td>desfecho_padronizado</td>
+      <td>8</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>test</th>
+      <td>8</td>
+      <td>2</td>
+      <td>chi2</td>
+      <td>7</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>statistic</th>
+      <td>8.0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>16.968713</td>
+      <td>14.948123</td>
+      <td>4.624035</td>
+      <td>5.672582</td>
+      <td>12.852883</td>
+      <td>21.154161</td>
+      <td>47.061863</td>
+    </tr>
+    <tr>
+      <th>p_value</th>
+      <td>8.0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>0.130709</td>
+      <td>0.135536</td>
+      <td>0.0</td>
+      <td>0.000919</td>
+      <td>0.102481</td>
+      <td>0.228636</td>
+      <td>0.328092</td>
+    </tr>
+    <tr>
+      <th>n</th>
+      <td>8.0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>205.0</td>
+      <td>0.0</td>
+      <td>205.0</td>
+      <td>205.0</td>
+      <td>205.0</td>
+      <td>205.0</td>
+      <td>205.0</td>
+    </tr>
+    <tr>
+      <th>note</th>
+      <td>0.0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table><div id="assoc-plot" class="plot"></div>
+<script>
+  (function(){
+    const vars = ["escala_apache_ii", "cuidados_paliativos", "drogas_vasoativas", "ventilacao_mecanica", "comorbidades", "procedimento_cirurgico", "hemodialise", "transfusao_sanguinea"];
+    const varsFull = ["escala_apache_ii", "cuidados_paliativos", "drogas_vasoativas", "ventilacao_mecanica", "comorbidades", "procedimento_cirurgico", "hemodialise", "transfusao_sanguinea"];
+    const vals = [8.829639755313321, 5.126456554101959, 2.9126786050578315, 0.9950559959243427, 0.9837335473840408, 0.6955518970391315, 0.5089125606081534, 0.4840037862489124];
+    const colors = ["crimson", "crimson", "crimson", "steelblue", "steelblue", "steelblue", "steelblue", "steelblue"];
+    const data = [{
+      x: vars,
+      y: vals,
+      type: 'bar',
+      marker: {color: colors},
+      hovertemplate: '%{customdata[0]}<br>-log10(p)=%{y}<extra></extra>',
+      customdata: varsFull.map(v => [v])
+    }];
+    const layout = {title: '-log10(p-value) por variável', xaxis: {tickangle: -45}, yaxis: {title: '-log10(p-value)'}, height: 400, margin: {b: 150}};
+    Plotly.newPlot('assoc-plot', data, layout, {responsive: true});
+  })
+</script>
+</details></div><div class="section"><h2>Análise descritiva clínica</h2><p class="note">Diagnósticos agrupados por categoria, comorbidades, causas de óbito, intervenções e APACHE II.</p><h3>Diagnósticos por categoria</h3><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>categoria</th>
+      <th>absoluta</th>
+      <th>relativa</th>
+      <th>diagnosticos</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Doenças respiratórias</td>
+      <td>59</td>
+      <td>28.8%</td>
+      <td>PNEUMONIA_NE; PNEUMONIA; DPOC_EXACERBADO; INSUFICIENCIA_RESPIRATORIA_AGUDA; DISPNEIA</td>
+    </tr>
+    <tr>
+      <td>Doenças neurológicas</td>
+      <td>21</td>
+      <td>10.2%</td>
+      <td>ACIDENTE_VASCULAR_CEREBRAL_ISQUEMICO; ACIDENTE_VASCULAR_CEREBRAL_NE; ACIDENTE_VASCULAR_ENCEFALICO_NE; ACIDENTE_VASCULAR_CEREBRAL_NAOESPECIFICADO; AVC_ISQUEMICO</td>
+    </tr>
+    <tr>
+      <td>Sepse e choque séptico</td>
+      <td>37</td>
+      <td>18.0%</td>
+      <td>SEPTICEMIA; SEPSE; SEPTICEMIA_NE; SEPSE_FOCO_PULMONAR; CHOQUE_SEPTICO_NE</td>
+    </tr>
+    <tr>
+      <td>Doenças cardiovasculares</td>
+      <td>18</td>
+      <td>8.8%</td>
+      <td>INSUFICIENCIA_CARDIACA_DESCOMPENSADA; INSUFICIENCIA_CARDIACA_CONGESTIVA; CHOQUE_CARDIOGENICO; CHOQUE_CARDIOGÊNICO; EDEMA_AGUDO_DE_PULMAO</td>
+    </tr>
+    <tr>
+      <td>Doenças gastrointestinais/abdominais</td>
+      <td>16</td>
+      <td>7.8%</td>
+      <td>DOR_ABDOMINAL; DOR_ABDOMINAL ; ABDOME_AGUDO; PANCREATITE; HEMORRAGIA_DIGESTIVA</td>
+    </tr>
+    <tr>
+      <td>Doenças renais e metabólicas</td>
+      <td>26</td>
+      <td>12.7%</td>
+      <td>CETOACIDOSE_DIABETICA; INSUFICIENCIA_RENAL_CRONICA; INSUFICIENCIA_RENAL_AGUDA; ACIDOSE_METABOLICA; DRC_AGUDIZADA</td>
+    </tr>
+    <tr>
+      <td>Infecções urinárias</td>
+      <td>8</td>
+      <td>3.9%</td>
+      <td>COLECISTITE_AGUDA; CISTITE_AGUDA; PO_COLECISTITE; INFECCAO_TRATO_URINARIO; CALCULOSE_DE_VIA_BILIAR_COM_COLECISTITE</td>
+    </tr>
+    <tr>
+      <td>Doenças hepáticas</td>
+      <td>8</td>
+      <td>3.9%</td>
+      <td>CIRROSE_HEPATICA_ALCOLICA; ENCEFALOPATIA_HEPATICA; COLANGITE; ICTERICIA_NE</td>
+    </tr>
+    <tr>
+      <td>Intoxicações exógenas</td>
+      <td>6</td>
+      <td>2.9%</td>
+      <td>INTOXICACAO_EXOGENA; INTOXICAÇÃO_EXOGENA; INTOXICAÇÃO_EXOGENA</td>
+    </tr>
+    <tr>
+      <td>Outros</td>
+      <td>6</td>
+      <td>2.9%</td>
+      <td>INFECCAO_DE_PELE_PARTES_MOLES; HEMATURIA_NE; RETIRADA_DE_TRAQUEOSTOMIA; CHOQUE_MISTO_CARDIOGENICO_SEPTICO; PNEUMOMIA_NE</td>
+    </tr>
+  </tbody>
+</table><h3>10 comorbidades mais frequentes</h3><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>valor</th>
+      <th>absoluta</th>
+      <th>relativa</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>HAS</td>
+      <td>117</td>
+      <td>57.1%</td>
+    </tr>
+    <tr>
+      <td>DM</td>
+      <td>58</td>
+      <td>28.3%</td>
+    </tr>
+    <tr>
+      <td>IC</td>
+      <td>46</td>
+      <td>22.4%</td>
+    </tr>
+    <tr>
+      <td>DPOC</td>
+      <td>37</td>
+      <td>18.0%</td>
+    </tr>
+    <tr>
+      <td>DSLP</td>
+      <td>32</td>
+      <td>15.6%</td>
+    </tr>
+    <tr>
+      <td>DRC</td>
+      <td>26</td>
+      <td>12.7%</td>
+    </tr>
+    <tr>
+      <td>HIPOTIREOIDISMO</td>
+      <td>20</td>
+      <td>9.8%</td>
+    </tr>
+    <tr>
+      <td>HPB</td>
+      <td>18</td>
+      <td>8.8%</td>
+    </tr>
+    <tr>
+      <td>FA</td>
+      <td>16</td>
+      <td>7.8%</td>
+    </tr>
+    <tr>
+      <td>OBESIDADE</td>
+      <td>13</td>
+      <td>6.3%</td>
+    </tr>
+  </tbody>
+</table><h3>Principais causas de óbito</h3><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>valor</th>
+      <th>absoluta</th>
+      <th>relativa</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CHOQUE_SEPTICO_FOCO_PULMONAR</td>
+      <td>26</td>
+      <td>15.7%</td>
+    </tr>
+    <tr>
+      <td>CHOQUE_SEPTICO_PULMONAR</td>
+      <td>13</td>
+      <td>7.8%</td>
+    </tr>
+    <tr>
+      <td>CHOQUE_SEPTICO_ABDOMINAL</td>
+      <td>10</td>
+      <td>6.0%</td>
+    </tr>
+    <tr>
+      <td>CHOQUE_SEPTICO_FOCO_ABDOMINAL</td>
+      <td>9</td>
+      <td>5.4%</td>
+    </tr>
+    <tr>
+      <td>DPOC_EXACERBADO</td>
+      <td>7</td>
+      <td>4.2%</td>
+    </tr>
+    <tr>
+      <td>SEPSE_FOCO_PULMONAR</td>
+      <td>6</td>
+      <td>3.6%</td>
+    </tr>
+    <tr>
+      <td>INSUFICIENCIA_RESPIRATORIA_AGUDA</td>
+      <td>5</td>
+      <td>3.0%</td>
+    </tr>
+    <tr>
+      <td>CHOQUE_CARDIOGENICO</td>
+      <td>5</td>
+      <td>3.0%</td>
+    </tr>
+    <tr>
+      <td>ACIDENTE_VASCULAR_CEREBRAL_ISQUEMICO</td>
+      <td>4</td>
+      <td>2.4%</td>
+    </tr>
+    <tr>
+      <td>CHOQUE_SEPTICO_FOCO_URINARIO</td>
+      <td>4</td>
+      <td>2.4%</td>
+    </tr>
+    <tr>
+      <td>ACIDENTE_VASCULAR_ENCEFALICO_ISQUEMICO</td>
+      <td>4</td>
+      <td>2.4%</td>
+    </tr>
+    <tr>
+      <td>CHOQUE_SEPTICO_NE</td>
+      <td>3</td>
+      <td>1.8%</td>
+    </tr>
+    <tr>
+      <td>INSUFICIENCIA_CARDIACA</td>
+      <td>3</td>
+      <td>1.8%</td>
+    </tr>
+    <tr>
+      <td>CHOQUE_HIPOVOLEMICO</td>
+      <td>3</td>
+      <td>1.8%</td>
+    </tr>
+    <tr>
+      <td>MORTE_ENCEFALICA</td>
+      <td>3</td>
+      <td>1.8%</td>
+    </tr>
+  </tbody>
+</table><h3>Suportes e intervenções</h3><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>intervencao</th>
+      <th>sim</th>
+      <th>nao</th>
+      <th>pct_sim</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Ventilação mecânica</td>
+      <td>162</td>
+      <td>43</td>
+      <td>79.0%</td>
+    </tr>
+    <tr>
+      <td>Sedação</td>
+      <td>149</td>
+      <td>56</td>
+      <td>72.7%</td>
+    </tr>
+    <tr>
+      <td>Drogas vasoativas</td>
+      <td>129</td>
+      <td>76</td>
+      <td>62.9%</td>
+    </tr>
+    <tr>
+      <td>Hemodiálise</td>
+      <td>43</td>
+      <td>162</td>
+      <td>21.0%</td>
+    </tr>
+    <tr>
+      <td>Transfusão sanguínea</td>
+      <td>61</td>
+      <td>144</td>
+      <td>29.8%</td>
+    </tr>
+    <tr>
+      <td>Procedimento cirúrgico</td>
+      <td>45</td>
+      <td>160</td>
+      <td>22.0%</td>
+    </tr>
+    <tr>
+      <td>Dispositivos invasivos</td>
+      <td>187</td>
+      <td>18</td>
+      <td>91.2%</td>
+    </tr>
+  </tbody>
+</table><h3>Óbitos e cuidados paliativos</h3><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>metrica</th>
+      <th>valor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Total de óbitos</td>
+      <td>166.0</td>
+    </tr>
+    <tr>
+      <td>Óbitos em cuidados paliativos</td>
+      <td>87.0</td>
+    </tr>
+    <tr>
+      <td>Proporção em cuidados paliativos</td>
+      <td>52.4%</td>
+    </tr>
+  </tbody>
+</table><h3>APACHE II × mortalidade por faixa</h3><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>faixa_apache</th>
+      <th>mortalidade_estimada_pct</th>
+      <th>n_pacientes</th>
+      <th>obitos_observados</th>
+      <th>mortalidade_observada_pct</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0-4</td>
+      <td>4.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.0%</td>
+    </tr>
+    <tr>
+      <td>5-9</td>
+      <td>8.0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0.0%</td>
+    </tr>
+    <tr>
+      <td>10-14</td>
+      <td>15.0</td>
+      <td>12</td>
+      <td>3</td>
+      <td>25.0%</td>
+    </tr>
+    <tr>
+      <td>15-19</td>
+      <td>25.0</td>
+      <td>20</td>
+      <td>11</td>
+      <td>55.0%</td>
+    </tr>
+    <tr>
+      <td>20-24</td>
+      <td>40.0</td>
+      <td>38</td>
+      <td>27</td>
+      <td>71.1%</td>
+    </tr>
+    <tr>
+      <td>25-29</td>
+      <td>55.0</td>
+      <td>39</td>
+      <td>34</td>
+      <td>87.2%</td>
+    </tr>
+    <tr>
+      <td>30-34</td>
+      <td>75.0</td>
+      <td>36</td>
+      <td>36</td>
+      <td>100.0%</td>
+    </tr>
+    <tr>
+      <td>≥35</td>
+      <td>85.0</td>
+      <td>58</td>
+      <td>55</td>
+      <td>94.8%</td>
+    </tr>
+  </tbody>
+</table><h3>APACHE II × tempo de internação</h3><table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>metrica</th>
+      <th>valor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>n</td>
+      <td>205.000000</td>
+    </tr>
+    <tr>
+      <td>correlacao_pearson</td>
+      <td>0.091823</td>
+    </tr>
+    <tr>
+      <td>apache_media</td>
+      <td>28.243902</td>
+    </tr>
+    <tr>
+      <td>tempo_uti_media_dias</td>
+      <td>12.482927</td>
+    </tr>
+  </tbody>
+</table><h3 class="small">Diagnósticos por categoria clínica</h3><img src="figures/diagnostico_por_categoria.png" alt="Diagnósticos por categoria clínica" style="max-width:100%;height:auto;" /><h3 class="small">10 comorbidades mais frequentes</h3><img src="figures/comorbidades_top10.png" alt="10 comorbidades mais frequentes" style="max-width:100%;height:auto;" /><h3 class="small">Principais causas de óbito</h3><img src="figures/causa_obito_top15.png" alt="Principais causas de óbito" style="max-width:100%;height:auto;" /><h3 class="small">APACHE II × tempo de internação</h3><img src="figures/apache_vs_tempo_internacao.png" alt="APACHE II × tempo de internação" style="max-width:100%;height:auto;" /><h3 class="small">Mortalidade observada vs estimada (APACHE II)</h3><img src="figures/apache_mortalidade_observada_vs_estimada.png" alt="Mortalidade observada vs estimada (APACHE II)" style="max-width:100%;height:auto;" /></div><div class="section"><h2>Descriptive CSVs</h2><h3>clin_apache_mortalidade_faixas.csv</h3><div class="meta">linhas: 8, colunas: 5</div><details><summary class="small">Preview, estatísticas e plots</summary><table class="dataframe preview-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>faixa_apache</th>
+      <th>mortalidade_estimada_pct</th>
+      <th>n_pacientes</th>
+      <th>obitos_observados</th>
+      <th>mortalidade_observada_pct</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0-4</td>
+      <td>4.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <td>5-9</td>
+      <td>8.0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <td>10-14</td>
+      <td>15.0</td>
+      <td>12</td>
+      <td>3</td>
+      <td>25.000000</td>
+    </tr>
+    <tr>
+      <td>15-19</td>
+      <td>25.0</td>
+      <td>20</td>
+      <td>11</td>
+      <td>55.000000</td>
+    </tr>
+    <tr>
+      <td>20-24</td>
+      <td>40.0</td>
+      <td>38</td>
+      <td>27</td>
+      <td>71.052632</td>
+    </tr>
+    <tr>
+      <td>25-29</td>
+      <td>55.0</td>
+      <td>39</td>
+      <td>34</td>
+      <td>87.179487</td>
+    </tr>
+    <tr>
+      <td>30-34</td>
+      <td>75.0</td>
+      <td>36</td>
+      <td>36</td>
+      <td>100.000000</td>
+    </tr>
+    <tr>
+      <td>≥35</td>
+      <td>85.0</td>
+      <td>58</td>
+      <td>55</td>
+      <td>94.827586</td>
+    </tr>
+  </tbody>
+</table><table border="1" class="dataframe desc-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count</th>
+      <th>unique</th>
+      <th>top</th>
+      <th>freq</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>50%</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>faixa_apache</th>
+      <td>8</td>
+      <td>8</td>
+      <td>0-4</td>
+      <td>1</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>mortalidade_estimada_pct</th>
+      <td>8.0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>38.375</td>
+      <td>30.761467</td>
+      <td>4.0</td>
+      <td>13.25</td>
+      <td>32.5</td>
+      <td>60.0</td>
+      <td>85.0</td>
+    </tr>
+    <tr>
+      <th>n_pacientes</th>
+      <td>8.0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>25.625</td>
+      <td>20.423638</td>
+      <td>0.0</td>
+      <td>9.5</td>
+      <td>28.0</td>
+      <td>38.25</td>
+      <td>58.0</td>
+    </tr>
+    <tr>
+      <th>obitos_observados</th>
+      <td>8.0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>20.75</td>
+      <td>20.324159</td>
+      <td>0.0</td>
+      <td>2.25</td>
+      <td>19.0</td>
+      <td>34.5</td>
+      <td>55.0</td>
+    </tr>
+    <tr>
+      <th>mortalidade_observada_pct</th>
+      <td>8.0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>54.132463</td>
+      <td>41.141606</td>
+      <td>0.0</td>
+      <td>18.75</td>
+      <td>63.026316</td>
+      <td>89.091512</td>
+      <td>100.0</td>
+    </tr>
+  </tbody>
+</table><div id="plot-clin_apache_mortalidade_faixas.csv-num" class="plot"></div>
+<script>
+  (function(){
+    const labels = ["4.0", "8.0", "15.0", "25.0", "40.0", "55.0", "75.0", "85.0"];
+    const vals = [1, 1, 1, 1, 1, 1, 1, 1];
+    const data = [{x: labels, y: vals, type: 'bar'}];
+    const layout = {title: 'Contagem de mortalidade_estimada_pct', xaxis: {tickangle: -45}, yaxis: {title: 'count'}};
+    Plotly.newPlot('plot-clin_apache_mortalidade_faixas.csv-num', data, layout, {responsive: true});
+  })
+</script>
+<div id="plot-clin_apache_mortalidade_faixas.csv-cat" class="plot"></div>
+<script>
+  (function(){
+    const labels = ["0-4", "5-9", "10-14", "15-19", "20-24", "25-29", "30-34", "\u226535"];
+    const vals = [1, 1, 1, 1, 1, 1, 1, 1];
+    const data = [{x: labels, y: vals, type: 'bar'}];
+    const layout = {title: 'Contagem de faixa_apache', xaxis: {tickangle: -45}, yaxis: {title: 'count'}};
+    Plotly.newPlot('plot-clin_apache_mortalidade_faixas.csv-cat', data, layout, {responsive: true});
+  })
+</script>
+</details><h3>clin_apache_tempo_internacao.csv</h3><div class="meta">linhas: 4, colunas: 2</div><details><summary class="small">Preview, estatísticas e plots</summary><table class="dataframe preview-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>metrica</th>
+      <th>valor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>n</td>
+      <td>205.000000</td>
+    </tr>
+    <tr>
+      <td>correlacao_pearson</td>
+      <td>0.091823</td>
+    </tr>
+    <tr>
+      <td>apache_media</td>
+      <td>28.243902</td>
+    </tr>
+    <tr>
+      <td>tempo_uti_media_dias</td>
+      <td>12.482927</td>
+    </tr>
+  </tbody>
+</table><table border="1" class="dataframe desc-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count</th>
+      <th>unique</th>
+      <th>top</th>
+      <th>freq</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>50%</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>metrica</th>
+      <td>4</td>
+      <td>4</td>
+      <td>n</td>
+      <td>1</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>valor</th>
+      <td>4.0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>61.454663</td>
+      <td>96.387841</td>
+      <td>0.091823</td>
+      <td>9.385151</td>
+      <td>20.363415</td>
+      <td>72.432927</td>
+      <td>205.0</td>
+    </tr>
+  </tbody>
+</table><div id="plot-clin_apache_tempo_internacao.csv-num" class="plot"></div>
+<script>
+  (function(){
+    const labels = ["205.0", "0.0918233951789744", "28.24390243902439", "12.482926829268292"];
+    const vals = [1, 1, 1, 1];
+    const data = [{x: labels, y: vals, type: 'bar'}];
+    const layout = {title: 'Contagem de valor', xaxis: {tickangle: -45}, yaxis: {title: 'count'}};
+    Plotly.newPlot('plot-clin_apache_tempo_internacao.csv-num', data, layout, {responsive: true});
+  })
+</script>
+<div id="plot-clin_apache_tempo_internacao.csv-cat" class="plot"></div>
+<script>
+  (function(){
+    const labels = ["n", "correlacao_pearson", "apache_media", "tempo_uti_media_dias"];
+    const vals = [1, 1, 1, 1];
+    const data = [{x: labels, y: vals, type: 'bar'}];
+    const layout = {title: 'Contagem de metrica', xaxis: {tickangle: -45}, yaxis: {title: 'count'}};
+    Plotly.newPlot('plot-clin_apache_tempo_internacao.csv-cat', data, layout, {responsive: true});
+  })
+</script>
+</details><h3>clin_causa_obito.csv</h3><div class="meta">linhas: 76, colunas: 3</div><details><summary class="small">Preview, estatísticas e plots</summary><table class="dataframe preview-table">
   <thead>
     <tr style="text-align: right;">
       <th>valor</th>
@@ -162,7 +952,229 @@ th{background:#f7f7f7}
       <td>0.020</td>
     </tr>
   </tbody>
-</table><div class="small">Erro lendo clin_causa_obito.csv: NDFrame.describe() got an unexpected keyword argument &#x27;datetime_is_numeric&#x27;</div><h3>clin_comorbidades.csv</h3><div class="meta">linhas: 2, colunas: 3</div><details><summary class="small">Preview e estatísticas</summary><table class="dataframe preview-table">
+</table><table border="1" class="dataframe desc-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count</th>
+      <th>unique</th>
+      <th>top</th>
+      <th>freq</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>50%</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>valor</th>
+      <td>76</td>
+      <td>76</td>
+      <td>.</td>
+      <td>1</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>absoluta</th>
+      <td>76.0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>2.631579</td>
+      <td>4.519121</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>29.0</td>
+    </tr>
+    <tr>
+      <th>relativa</th>
+      <td>76.0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>0.013158</td>
+      <td>0.022596</td>
+      <td>0.005</td>
+      <td>0.005</td>
+      <td>0.005</td>
+      <td>0.01</td>
+      <td>0.145</td>
+    </tr>
+  </tbody>
+</table><div id="plot-clin_causa_obito.csv-num" class="plot"></div>
+<script>
+  (function(){
+    const labels = ["1", "2", "3", "6", "4", "5", "29", "25", "13", "9"];
+    const vals = [50, 8, 6, 3, 3, 2, 1, 1, 1, 1];
+    const data = [{x: labels, y: vals, type: 'bar'}];
+    const layout = {title: 'Contagem de absoluta', xaxis: {tickangle: -45}, yaxis: {title: 'count'}};
+    Plotly.newPlot('plot-clin_causa_obito.csv-num', data, layout, {responsive: true});
+  })
+</script>
+<div id="plot-clin_causa_obito.csv-cat" class="plot"></div>
+<script>
+  (function(){
+    const labels = [".", "CHOQUE_SEPTICO_FOCO_PULMONAR", "CHOQUE_SEPTICO_PULMONAR", "CHOQUE_SEPTICO_ABDOMINAL", "SEPSE_FOCO_PULMONAR", "CHOQUE_SEPTICO_FOCO_ABDOMINAL", "DPOC_EXACERBADO", "INSUFICIENCIA_RESPIRATORIA_AGUDA", "CHOQUE_CARDIOGENICO", "ACIDENTE_VASCULAR_CEREBRAL_ISQUEMICO", "CHOQUE_SEPTICO_FOCO_URINARIO", "ACIDENTE_VASCULAR_ENCEFALICO_ISQUEMICO", "CHOQUE_SEPTICO_NE", "CHOQUE_SEPTICO", "INSUFICIENCIA_CARDIACA", "MORTE_ENCEFALICA", "TROMBOEMBOLISMO_PULMONAR", "CHOQUE_SEPTICO_FOCO_ABDOMINAL ", "CHOQUE_SEPTICO_DE_FOCO_PULMONAR", "NAO"];
+    const vals = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+    const data = [{x: labels, y: vals, type: 'bar'}];
+    const layout = {title: 'Contagem de valor', xaxis: {tickangle: -45}, yaxis: {title: 'count'}};
+    Plotly.newPlot('plot-clin_causa_obito.csv-cat', data, layout, {responsive: true});
+  })
+</script>
+</details><h3>clin_causa_obito_top.csv</h3><div class="meta">linhas: 15, colunas: 3</div><details><summary class="small">Preview, estatísticas e plots</summary><table class="dataframe preview-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>valor</th>
+      <th>absoluta</th>
+      <th>relativa</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CHOQUE_SEPTICO_FOCO_PULMONAR</td>
+      <td>26</td>
+      <td>0.156627</td>
+    </tr>
+    <tr>
+      <td>CHOQUE_SEPTICO_PULMONAR</td>
+      <td>13</td>
+      <td>0.078313</td>
+    </tr>
+    <tr>
+      <td>CHOQUE_SEPTICO_ABDOMINAL</td>
+      <td>10</td>
+      <td>0.060241</td>
+    </tr>
+    <tr>
+      <td>CHOQUE_SEPTICO_FOCO_ABDOMINAL</td>
+      <td>9</td>
+      <td>0.054217</td>
+    </tr>
+    <tr>
+      <td>DPOC_EXACERBADO</td>
+      <td>7</td>
+      <td>0.042169</td>
+    </tr>
+    <tr>
+      <td>SEPSE_FOCO_PULMONAR</td>
+      <td>6</td>
+      <td>0.036145</td>
+    </tr>
+    <tr>
+      <td>INSUFICIENCIA_RESPIRATORIA_AGUDA</td>
+      <td>5</td>
+      <td>0.030120</td>
+    </tr>
+    <tr>
+      <td>CHOQUE_CARDIOGENICO</td>
+      <td>5</td>
+      <td>0.030120</td>
+    </tr>
+    <tr>
+      <td>ACIDENTE_VASCULAR_CEREBRAL_ISQUEMICO</td>
+      <td>4</td>
+      <td>0.024096</td>
+    </tr>
+    <tr>
+      <td>CHOQUE_SEPTICO_FOCO_URINARIO</td>
+      <td>4</td>
+      <td>0.024096</td>
+    </tr>
+  </tbody>
+</table><table border="1" class="dataframe desc-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count</th>
+      <th>unique</th>
+      <th>top</th>
+      <th>freq</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>50%</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>valor</th>
+      <td>15</td>
+      <td>15</td>
+      <td>CHOQUE_SEPTICO_FOCO_PULMONAR</td>
+      <td>1</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>absoluta</th>
+      <td>15.0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>7.0</td>
+      <td>6.035609</td>
+      <td>3.0</td>
+      <td>3.5</td>
+      <td>5.0</td>
+      <td>8.0</td>
+      <td>26.0</td>
+    </tr>
+    <tr>
+      <th>relativa</th>
+      <td>15.0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>0.042169</td>
+      <td>0.036359</td>
+      <td>0.018072</td>
+      <td>0.021084</td>
+      <td>0.03012</td>
+      <td>0.048193</td>
+      <td>0.156627</td>
+    </tr>
+  </tbody>
+</table><div id="plot-clin_causa_obito_top.csv-num" class="plot"></div>
+<script>
+  (function(){
+    const labels = ["3", "4", "5", "26", "13", "10", "9", "7", "6"];
+    const vals = [4, 3, 2, 1, 1, 1, 1, 1, 1];
+    const data = [{x: labels, y: vals, type: 'bar'}];
+    const layout = {title: 'Contagem de absoluta', xaxis: {tickangle: -45}, yaxis: {title: 'count'}};
+    Plotly.newPlot('plot-clin_causa_obito_top.csv-num', data, layout, {responsive: true});
+  })
+</script>
+<div id="plot-clin_causa_obito_top.csv-cat" class="plot"></div>
+<script>
+  (function(){
+    const labels = ["CHOQUE_SEPTICO_FOCO_PULMONAR", "CHOQUE_SEPTICO_PULMONAR", "CHOQUE_SEPTICO_ABDOMINAL", "CHOQUE_SEPTICO_FOCO_ABDOMINAL", "DPOC_EXACERBADO", "SEPSE_FOCO_PULMONAR", "INSUFICIENCIA_RESPIRATORIA_AGUDA", "CHOQUE_CARDIOGENICO", "ACIDENTE_VASCULAR_CEREBRAL_ISQUEMICO", "CHOQUE_SEPTICO_FOCO_URINARIO", "ACIDENTE_VASCULAR_ENCEFALICO_ISQUEMICO", "CHOQUE_SEPTICO_NE", "INSUFICIENCIA_CARDIACA", "CHOQUE_HIPOVOLEMICO", "MORTE_ENCEFALICA"];
+    const vals = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+    const data = [{x: labels, y: vals, type: 'bar'}];
+    const layout = {title: 'Contagem de valor', xaxis: {tickangle: -45}, yaxis: {title: 'count'}};
+    Plotly.newPlot('plot-clin_causa_obito_top.csv-cat', data, layout, {responsive: true});
+  })
+</script>
+</details><h3>clin_comorbidades.csv</h3><div class="meta">linhas: 2, colunas: 3</div><details><summary class="small">Preview, estatísticas e plots</summary><table class="dataframe preview-table">
   <thead>
     <tr style="text-align: right;">
       <th>valor</th>
@@ -182,7 +1194,229 @@ th{background:#f7f7f7}
       <td>0.068293</td>
     </tr>
   </tbody>
-</table><div class="small">Erro lendo clin_comorbidades.csv: NDFrame.describe() got an unexpected keyword argument &#x27;datetime_is_numeric&#x27;</div><h3>clin_cuidados_paliativos.csv</h3><div class="meta">linhas: 4, colunas: 3</div><details><summary class="small">Preview e estatísticas</summary><table class="dataframe preview-table">
+</table><table border="1" class="dataframe desc-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count</th>
+      <th>unique</th>
+      <th>top</th>
+      <th>freq</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>50%</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>valor</th>
+      <td>2</td>
+      <td>2</td>
+      <td>SIM</td>
+      <td>1</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>absoluta</th>
+      <td>2.0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>102.5</td>
+      <td>125.1579</td>
+      <td>14.0</td>
+      <td>58.25</td>
+      <td>102.5</td>
+      <td>146.75</td>
+      <td>191.0</td>
+    </tr>
+    <tr>
+      <th>relativa</th>
+      <td>2.0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>0.5</td>
+      <td>0.610526</td>
+      <td>0.068293</td>
+      <td>0.284146</td>
+      <td>0.5</td>
+      <td>0.715854</td>
+      <td>0.931707</td>
+    </tr>
+  </tbody>
+</table><div id="plot-clin_comorbidades.csv-num" class="plot"></div>
+<script>
+  (function(){
+    const labels = ["191", "14"];
+    const vals = [1, 1];
+    const data = [{x: labels, y: vals, type: 'bar'}];
+    const layout = {title: 'Contagem de absoluta', xaxis: {tickangle: -45}, yaxis: {title: 'count'}};
+    Plotly.newPlot('plot-clin_comorbidades.csv-num', data, layout, {responsive: true});
+  })
+</script>
+<div id="plot-clin_comorbidades.csv-cat" class="plot"></div>
+<script>
+  (function(){
+    const labels = ["SIM", "NAO"];
+    const vals = [1, 1];
+    const data = [{x: labels, y: vals, type: 'bar'}];
+    const layout = {title: 'Contagem de valor', xaxis: {tickangle: -45}, yaxis: {title: 'count'}};
+    Plotly.newPlot('plot-clin_comorbidades.csv-cat', data, layout, {responsive: true});
+  })
+</script>
+</details><h3>clin_comorbidades_top10.csv</h3><div class="meta">linhas: 10, colunas: 3</div><details><summary class="small">Preview, estatísticas e plots</summary><table class="dataframe preview-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>valor</th>
+      <th>absoluta</th>
+      <th>relativa</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>HAS</td>
+      <td>117</td>
+      <td>0.570732</td>
+    </tr>
+    <tr>
+      <td>DM</td>
+      <td>58</td>
+      <td>0.282927</td>
+    </tr>
+    <tr>
+      <td>IC</td>
+      <td>46</td>
+      <td>0.224390</td>
+    </tr>
+    <tr>
+      <td>DPOC</td>
+      <td>37</td>
+      <td>0.180488</td>
+    </tr>
+    <tr>
+      <td>DSLP</td>
+      <td>32</td>
+      <td>0.156098</td>
+    </tr>
+    <tr>
+      <td>DRC</td>
+      <td>26</td>
+      <td>0.126829</td>
+    </tr>
+    <tr>
+      <td>HIPOTIREOIDISMO</td>
+      <td>20</td>
+      <td>0.097561</td>
+    </tr>
+    <tr>
+      <td>HPB</td>
+      <td>18</td>
+      <td>0.087805</td>
+    </tr>
+    <tr>
+      <td>FA</td>
+      <td>16</td>
+      <td>0.078049</td>
+    </tr>
+    <tr>
+      <td>OBESIDADE</td>
+      <td>13</td>
+      <td>0.063415</td>
+    </tr>
+  </tbody>
+</table><table border="1" class="dataframe desc-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count</th>
+      <th>unique</th>
+      <th>top</th>
+      <th>freq</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>50%</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>valor</th>
+      <td>10</td>
+      <td>10</td>
+      <td>HAS</td>
+      <td>1</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>absoluta</th>
+      <td>10.0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>38.3</td>
+      <td>31.123589</td>
+      <td>13.0</td>
+      <td>18.5</td>
+      <td>29.0</td>
+      <td>43.75</td>
+      <td>117.0</td>
+    </tr>
+    <tr>
+      <th>relativa</th>
+      <td>10.0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>0.186829</td>
+      <td>0.151822</td>
+      <td>0.063415</td>
+      <td>0.090244</td>
+      <td>0.141463</td>
+      <td>0.213415</td>
+      <td>0.570732</td>
+    </tr>
+  </tbody>
+</table><div id="plot-clin_comorbidades_top10.csv-num" class="plot"></div>
+<script>
+  (function(){
+    const labels = ["117", "58", "46", "37", "32", "26", "20", "18", "16", "13"];
+    const vals = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+    const data = [{x: labels, y: vals, type: 'bar'}];
+    const layout = {title: 'Contagem de absoluta', xaxis: {tickangle: -45}, yaxis: {title: 'count'}};
+    Plotly.newPlot('plot-clin_comorbidades_top10.csv-num', data, layout, {responsive: true});
+  })
+</script>
+<div id="plot-clin_comorbidades_top10.csv-cat" class="plot"></div>
+<script>
+  (function(){
+    const labels = ["HAS", "DM", "IC", "DPOC", "DSLP", "DRC", "HIPOTIREOIDISMO", "HPB", "FA", "OBESIDADE"];
+    const vals = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+    const data = [{x: labels, y: vals, type: 'bar'}];
+    const layout = {title: 'Contagem de valor', xaxis: {tickangle: -45}, yaxis: {title: 'count'}};
+    Plotly.newPlot('plot-clin_comorbidades_top10.csv-cat', data, layout, {responsive: true});
+  })
+</script>
+</details><h3>clin_cuidados_paliativos.csv</h3><div class="meta">linhas: 4, colunas: 3</div><details><summary class="small">Preview, estatísticas e plots</summary><table class="dataframe preview-table">
   <thead>
     <tr style="text-align: right;">
       <th>valor</th>
@@ -212,7 +1446,88 @@ th{background:#f7f7f7}
       <td>0.058537</td>
     </tr>
   </tbody>
-</table><div class="small">Erro lendo clin_cuidados_paliativos.csv: NDFrame.describe() got an unexpected keyword argument &#x27;datetime_is_numeric&#x27;</div><h3>clin_desfecho_clinico.csv</h3><div class="meta">linhas: 16, colunas: 3</div><details><summary class="small">Preview e estatísticas</summary><table class="dataframe preview-table">
+</table><table border="1" class="dataframe desc-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count</th>
+      <th>unique</th>
+      <th>top</th>
+      <th>freq</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>50%</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>valor</th>
+      <td>4</td>
+      <td>4</td>
+      <td>SIM</td>
+      <td>1</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>absoluta</th>
+      <td>4.0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>51.25</td>
+      <td>30.247589</td>
+      <td>12.0</td>
+      <td>35.25</td>
+      <td>58.0</td>
+      <td>74.0</td>
+      <td>77.0</td>
+    </tr>
+    <tr>
+      <th>relativa</th>
+      <td>4.0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>0.25</td>
+      <td>0.147549</td>
+      <td>0.058537</td>
+      <td>0.171951</td>
+      <td>0.282927</td>
+      <td>0.360976</td>
+      <td>0.37561</td>
+    </tr>
+  </tbody>
+</table><div id="plot-clin_cuidados_paliativos.csv-num" class="plot"></div>
+<script>
+  (function(){
+    const labels = ["77", "73", "43", "12"];
+    const vals = [1, 1, 1, 1];
+    const data = [{x: labels, y: vals, type: 'bar'}];
+    const layout = {title: 'Contagem de absoluta', xaxis: {tickangle: -45}, yaxis: {title: 'count'}};
+    Plotly.newPlot('plot-clin_cuidados_paliativos.csv-num', data, layout, {responsive: true});
+  })
+</script>
+<div id="plot-clin_cuidados_paliativos.csv-cat" class="plot"></div>
+<script>
+  (function(){
+    const labels = ["SIM", "NAO", "NAO ", "SIM "];
+    const vals = [1, 1, 1, 1];
+    const data = [{x: labels, y: vals, type: 'bar'}];
+    const layout = {title: 'Contagem de valor', xaxis: {tickangle: -45}, yaxis: {title: 'count'}};
+    Plotly.newPlot('plot-clin_cuidados_paliativos.csv-cat', data, layout, {responsive: true});
+  })
+</script>
+</details><h3>clin_desfecho_clinico.csv</h3><div class="meta">linhas: 16, colunas: 3</div><details><summary class="small">Preview, estatísticas e plots</summary><table class="dataframe preview-table">
   <thead>
     <tr style="text-align: right;">
       <th>valor</th>
@@ -267,12 +1582,93 @@ th{background:#f7f7f7}
       <td>0.004878</td>
     </tr>
     <tr>
-      <td>NaN</td>
+      <td></td>
       <td>1</td>
       <td>0.004878</td>
     </tr>
   </tbody>
-</table><div class="small">Erro lendo clin_desfecho_clinico.csv: NDFrame.describe() got an unexpected keyword argument &#x27;datetime_is_numeric&#x27;</div><h3>clin_desfecho_padronizado.csv</h3><div class="meta">linhas: 5, colunas: 3</div><details><summary class="small">Preview e estatísticas</summary><table class="dataframe preview-table">
+</table><table border="1" class="dataframe desc-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count</th>
+      <th>unique</th>
+      <th>top</th>
+      <th>freq</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>50%</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>valor</th>
+      <td>15</td>
+      <td>15</td>
+      <td>OBITO</td>
+      <td>1</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>absoluta</th>
+      <td>16.0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>12.8125</td>
+      <td>41.118072</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>166.0</td>
+    </tr>
+    <tr>
+      <th>relativa</th>
+      <td>16.0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>0.0625</td>
+      <td>0.200576</td>
+      <td>0.004878</td>
+      <td>0.004878</td>
+      <td>0.004878</td>
+      <td>0.009756</td>
+      <td>0.809756</td>
+    </tr>
+  </tbody>
+</table><div id="plot-clin_desfecho_clinico.csv-num" class="plot"></div>
+<script>
+  (function(){
+    const labels = ["1", "2", "166", "20", "3"];
+    const vals = [10, 3, 1, 1, 1];
+    const data = [{x: labels, y: vals, type: 'bar'}];
+    const layout = {title: 'Contagem de absoluta', xaxis: {tickangle: -45}, yaxis: {title: 'count'}};
+    Plotly.newPlot('plot-clin_desfecho_clinico.csv-num', data, layout, {responsive: true});
+  })
+</script>
+<div id="plot-clin_desfecho_clinico.csv-cat" class="plot"></div>
+<script>
+  (function(){
+    const labels = ["OBITO", "ALTA", "TRANSFERENCIA_HOSPITAL_EVANGELICO", "TRANSFERENCIA_HOSPITAL_DE_CLINICAS", "TRANSFERENCIA_EVANGELICO", "TRANSFERENCIA_HOSPITAL_SANTA_CASA", "ALTA/TRANSFERENCIA", "TRANSFERENCIA_HT", "NAO", "TRANSFERENCIA_CAJURU", "TRANSFERENCIA_SANTA_CASA", "TRANSFERENCIA_SAO_VICENTE", "TRANSFERENCIA_CRUZ_VERMELHA", "TRASNFERENCIA_EVANGELICO", "TRANSFERENCIA_UEP"];
+    const vals = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+    const data = [{x: labels, y: vals, type: 'bar'}];
+    const layout = {title: 'Contagem de valor', xaxis: {tickangle: -45}, yaxis: {title: 'count'}};
+    Plotly.newPlot('plot-clin_desfecho_clinico.csv-cat', data, layout, {responsive: true});
+  })
+</script>
+</details><h3>clin_desfecho_padronizado.csv</h3><div class="meta">linhas: 5, colunas: 3</div><details><summary class="small">Preview, estatísticas e plots</summary><table class="dataframe preview-table">
   <thead>
     <tr style="text-align: right;">
       <th>valor</th>
@@ -307,7 +1703,254 @@ th{background:#f7f7f7}
       <td>0.004878</td>
     </tr>
   </tbody>
-</table><div class="small">Erro lendo clin_desfecho_padronizado.csv: NDFrame.describe() got an unexpected keyword argument &#x27;datetime_is_numeric&#x27;</div><h3>clin_diagnostico_principal.csv</h3><div class="meta">linhas: 105, colunas: 3</div><details><summary class="small">Preview e estatísticas</summary><table class="dataframe preview-table">
+</table><table border="1" class="dataframe desc-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count</th>
+      <th>unique</th>
+      <th>top</th>
+      <th>freq</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>50%</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>valor</th>
+      <td>5</td>
+      <td>5</td>
+      <td>OBITO</td>
+      <td>1</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>absoluta</th>
+      <td>5.0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>41.0</td>
+      <td>70.395312</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>15.0</td>
+      <td>21.0</td>
+      <td>166.0</td>
+    </tr>
+    <tr>
+      <th>relativa</th>
+      <td>5.0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>0.2</td>
+      <td>0.343392</td>
+      <td>0.004878</td>
+      <td>0.009756</td>
+      <td>0.073171</td>
+      <td>0.102439</td>
+      <td>0.809756</td>
+    </tr>
+  </tbody>
+</table><div id="plot-clin_desfecho_padronizado.csv-num" class="plot"></div>
+<script>
+  (function(){
+    const labels = ["166", "21", "15", "2", "1"];
+    const vals = [1, 1, 1, 1, 1];
+    const data = [{x: labels, y: vals, type: 'bar'}];
+    const layout = {title: 'Contagem de absoluta', xaxis: {tickangle: -45}, yaxis: {title: 'count'}};
+    Plotly.newPlot('plot-clin_desfecho_padronizado.csv-num', data, layout, {responsive: true});
+  })
+</script>
+<div id="plot-clin_desfecho_padronizado.csv-cat" class="plot"></div>
+<script>
+  (function(){
+    const labels = ["OBITO", "ALTA", "TRANSFERENCIA", "OUTRO", "DESCONHECIDO"];
+    const vals = [1, 1, 1, 1, 1];
+    const data = [{x: labels, y: vals, type: 'bar'}];
+    const layout = {title: 'Contagem de valor', xaxis: {tickangle: -45}, yaxis: {title: 'count'}};
+    Plotly.newPlot('plot-clin_desfecho_padronizado.csv-cat', data, layout, {responsive: true});
+  })
+</script>
+</details><h3>clin_diagnostico_por_categoria.csv</h3><div class="meta">linhas: 10, colunas: 4</div><details><summary class="small">Preview, estatísticas e plots</summary><table class="dataframe preview-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>categoria</th>
+      <th>absoluta</th>
+      <th>relativa</th>
+      <th>diagnosticos</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Doenças respiratórias</td>
+      <td>59</td>
+      <td>0.287805</td>
+      <td>PNEUMONIA_NE; PNEUMONIA; DPOC_EXACERBADO; INSUFICIENCIA_RESPIRATORIA_AGUDA; DISPNEIA</td>
+    </tr>
+    <tr>
+      <td>Doenças neurológicas</td>
+      <td>21</td>
+      <td>0.102439</td>
+      <td>ACIDENTE_VASCULAR_CEREBRAL_ISQUEMICO; ACIDENTE_VASCULAR_CEREBRAL_NE; ACIDENTE_VASCULAR_ENCEFALICO_NE; ACIDENTE_VASCULAR_CEREBRAL_NAOESPECIFICADO; AVC_ISQUEMICO</td>
+    </tr>
+    <tr>
+      <td>Sepse e choque séptico</td>
+      <td>37</td>
+      <td>0.180488</td>
+      <td>SEPTICEMIA; SEPSE; SEPTICEMIA_NE; SEPSE_FOCO_PULMONAR; CHOQUE_SEPTICO_NE</td>
+    </tr>
+    <tr>
+      <td>Doenças cardiovasculares</td>
+      <td>18</td>
+      <td>0.087805</td>
+      <td>INSUFICIENCIA_CARDIACA_DESCOMPENSADA; INSUFICIENCIA_CARDIACA_CONGESTIVA; CHOQUE_CARDIOGENICO; CHOQUE_CARDIOGÊNICO; EDEMA_AGUDO_DE_PULMAO</td>
+    </tr>
+    <tr>
+      <td>Doenças gastrointestinais/abdominais</td>
+      <td>16</td>
+      <td>0.078049</td>
+      <td>DOR_ABDOMINAL; DOR_ABDOMINAL ; ABDOME_AGUDO; PANCREATITE; HEMORRAGIA_DIGESTIVA</td>
+    </tr>
+    <tr>
+      <td>Doenças renais e metabólicas</td>
+      <td>26</td>
+      <td>0.126829</td>
+      <td>CETOACIDOSE_DIABETICA; INSUFICIENCIA_RENAL_CRONICA; INSUFICIENCIA_RENAL_AGUDA; ACIDOSE_METABOLICA; DRC_AGUDIZADA</td>
+    </tr>
+    <tr>
+      <td>Infecções urinárias</td>
+      <td>8</td>
+      <td>0.039024</td>
+      <td>COLECISTITE_AGUDA; CISTITE_AGUDA; PO_COLECISTITE; INFECCAO_TRATO_URINARIO; CALCULOSE_DE_VIA_BILIAR_COM_COLECISTITE</td>
+    </tr>
+    <tr>
+      <td>Doenças hepáticas</td>
+      <td>8</td>
+      <td>0.039024</td>
+      <td>CIRROSE_HEPATICA_ALCOLICA; ENCEFALOPATIA_HEPATICA; COLANGITE; ICTERICIA_NE</td>
+    </tr>
+    <tr>
+      <td>Intoxicações exógenas</td>
+      <td>6</td>
+      <td>0.029268</td>
+      <td>INTOXICACAO_EXOGENA; INTOXICAÇÃO_EXOGENA; INTOXICAÇÃO_EXOGENA</td>
+    </tr>
+    <tr>
+      <td>Outros</td>
+      <td>6</td>
+      <td>0.029268</td>
+      <td>INFECCAO_DE_PELE_PARTES_MOLES; HEMATURIA_NE; RETIRADA_DE_TRAQUEOSTOMIA; CHOQUE_MISTO_CARDIOGENICO_SEPTICO; PNEUMOMIA_NE</td>
+    </tr>
+  </tbody>
+</table><table border="1" class="dataframe desc-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count</th>
+      <th>unique</th>
+      <th>top</th>
+      <th>freq</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>50%</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>categoria</th>
+      <td>10</td>
+      <td>10</td>
+      <td>Doenças respiratórias</td>
+      <td>1</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>absoluta</th>
+      <td>10.0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>20.5</td>
+      <td>16.814346</td>
+      <td>6.0</td>
+      <td>8.0</td>
+      <td>17.0</td>
+      <td>24.75</td>
+      <td>59.0</td>
+    </tr>
+    <tr>
+      <th>relativa</th>
+      <td>10.0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>0.1</td>
+      <td>0.082021</td>
+      <td>0.029268</td>
+      <td>0.039024</td>
+      <td>0.082927</td>
+      <td>0.120732</td>
+      <td>0.287805</td>
+    </tr>
+    <tr>
+      <th>diagnosticos</th>
+      <td>10</td>
+      <td>10</td>
+      <td>PNEUMONIA_NE; PNEUMONIA; DPOC_EXACERBADO; INSUFICIENCIA_RESPIRATORIA_AGUDA; DISPNEIA</td>
+      <td>1</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table><div id="plot-clin_diagnostico_por_categoria.csv-num" class="plot"></div>
+<script>
+  (function(){
+    const labels = ["8", "6", "59", "21", "37", "18", "16", "26"];
+    const vals = [2, 2, 1, 1, 1, 1, 1, 1];
+    const data = [{x: labels, y: vals, type: 'bar'}];
+    const layout = {title: 'Contagem de absoluta', xaxis: {tickangle: -45}, yaxis: {title: 'count'}};
+    Plotly.newPlot('plot-clin_diagnostico_por_categoria.csv-num', data, layout, {responsive: true});
+  })
+</script>
+<div id="plot-clin_diagnostico_por_categoria.csv-cat" class="plot"></div>
+<script>
+  (function(){
+    const labels = ["Doen\u00e7as respirat\u00f3rias", "Doen\u00e7as neurol\u00f3gicas", "Sepse e choque s\u00e9ptico", "Doen\u00e7as cardiovasculares", "Doen\u00e7as gastrointestinais/abdominais", "Doen\u00e7as renais e metab\u00f3licas", "Infec\u00e7\u00f5es urin\u00e1rias", "Doen\u00e7as hep\u00e1ticas", "Intoxica\u00e7\u00f5es ex\u00f3genas", "Outros"];
+    const vals = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+    const data = [{x: labels, y: vals, type: 'bar'}];
+    const layout = {title: 'Contagem de categoria', xaxis: {tickangle: -45}, yaxis: {title: 'count'}};
+    Plotly.newPlot('plot-clin_diagnostico_por_categoria.csv-cat', data, layout, {responsive: true});
+  })
+</script>
+</details><h3>clin_diagnostico_principal.csv</h3><div class="meta">linhas: 105, colunas: 3</div><details><summary class="small">Preview, estatísticas e plots</summary><table class="dataframe preview-table">
   <thead>
     <tr style="text-align: right;">
       <th>valor</th>
@@ -367,7 +2010,88 @@ th{background:#f7f7f7}
       <td>0.024390</td>
     </tr>
   </tbody>
-</table><div class="small">Erro lendo clin_diagnostico_principal.csv: NDFrame.describe() got an unexpected keyword argument &#x27;datetime_is_numeric&#x27;</div><h3>clin_dispositivo_invasivo.csv</h3><div class="meta">linhas: 36, colunas: 3</div><details><summary class="small">Preview e estatísticas</summary><table class="dataframe preview-table">
+</table><table border="1" class="dataframe desc-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count</th>
+      <th>unique</th>
+      <th>top</th>
+      <th>freq</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>50%</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>valor</th>
+      <td>105</td>
+      <td>105</td>
+      <td>PNEUMONIA_NE</td>
+      <td>1</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>absoluta</th>
+      <td>105.0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>1.952381</td>
+      <td>1.877913</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>10.0</td>
+    </tr>
+    <tr>
+      <th>relativa</th>
+      <td>105.0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>0.009524</td>
+      <td>0.009161</td>
+      <td>0.004878</td>
+      <td>0.004878</td>
+      <td>0.004878</td>
+      <td>0.009756</td>
+      <td>0.04878</td>
+    </tr>
+  </tbody>
+</table><div id="plot-clin_diagnostico_principal.csv-num" class="plot"></div>
+<script>
+  (function(){
+    const labels = ["1", "2", "4", "3", "5", "8", "10", "9", "7", "6"];
+    const vals = [72, 11, 7, 5, 4, 2, 1, 1, 1, 1];
+    const data = [{x: labels, y: vals, type: 'bar'}];
+    const layout = {title: 'Contagem de absoluta', xaxis: {tickangle: -45}, yaxis: {title: 'count'}};
+    Plotly.newPlot('plot-clin_diagnostico_principal.csv-num', data, layout, {responsive: true});
+  })
+</script>
+<div id="plot-clin_diagnostico_principal.csv-cat" class="plot"></div>
+<script>
+  (function(){
+    const labels = ["PNEUMONIA_NE", "CETOACIDOSE_DIABETICA", "PNEUMONIA", "DPOC_EXACERBADO", "SEPTICEMIA", "ACIDENTE_VASCULAR_CEREBRAL_ISQUEMICO", "INSUFICIENCIA_RESPIRATORIA_AGUDA", "SEPSE", "INSUFICIENCIA_CARDIACA_DESCOMPENSADA", "ACIDENTE_VASCULAR_CEREBRAL_NE", "INSUFICIENCIA_RENAL_CRONICA", "INTOXICACAO_EXOGENA", "DISPNEIA", "INSUFICIENCIA_CARDIACA_CONGESTIVA", "CIRROSE_HEPATICA_ALCOLICA", "ACIDENTE_VASCULAR_ENCEFALICO_NE", "INSUFICIENCIA_RENAL_AGUDA", "SEPTICEMIA_NE", "PNUEMONIA_BACTERIANA", "PNEUMONIA_BACTERIANA"];
+    const vals = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+    const data = [{x: labels, y: vals, type: 'bar'}];
+    const layout = {title: 'Contagem de valor', xaxis: {tickangle: -45}, yaxis: {title: 'count'}};
+    Plotly.newPlot('plot-clin_diagnostico_principal.csv-cat', data, layout, {responsive: true});
+  })
+</script>
+</details><h3>clin_dispositivo_invasivo.csv</h3><div class="meta">linhas: 36, colunas: 3</div><details><summary class="small">Preview, estatísticas e plots</summary><table class="dataframe preview-table">
   <thead>
     <tr style="text-align: right;">
       <th>valor</th>
@@ -427,7 +2151,88 @@ th{background:#f7f7f7}
       <td>0.009756</td>
     </tr>
   </tbody>
-</table><div class="small">Erro lendo clin_dispositivo_invasivo.csv: NDFrame.describe() got an unexpected keyword argument &#x27;datetime_is_numeric&#x27;</div><h3>clin_drogas_vasoativas.csv</h3><div class="meta">linhas: 2, colunas: 3</div><details><summary class="small">Preview e estatísticas</summary><table class="dataframe preview-table">
+</table><table border="1" class="dataframe desc-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count</th>
+      <th>unique</th>
+      <th>top</th>
+      <th>freq</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>50%</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>valor</th>
+      <td>36</td>
+      <td>36</td>
+      <td>CVC_IOT_SVD_SNE_PAI</td>
+      <td>1</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>absoluta</th>
+      <td>36.0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>5.694444</td>
+      <td>13.360538</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>2.25</td>
+      <td>70.0</td>
+    </tr>
+    <tr>
+      <th>relativa</th>
+      <td>36.0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>0.027778</td>
+      <td>0.065173</td>
+      <td>0.004878</td>
+      <td>0.004878</td>
+      <td>0.004878</td>
+      <td>0.010976</td>
+      <td>0.341463</td>
+    </tr>
+  </tbody>
+</table><div id="plot-clin_dispositivo_invasivo.csv-num" class="plot"></div>
+<script>
+  (function(){
+    const labels = ["1", "2", "7", "5", "70", "43", "17", "13", "3"];
+    const vals = [19, 8, 2, 2, 1, 1, 1, 1, 1];
+    const data = [{x: labels, y: vals, type: 'bar'}];
+    const layout = {title: 'Contagem de absoluta', xaxis: {tickangle: -45}, yaxis: {title: 'count'}};
+    Plotly.newPlot('plot-clin_dispositivo_invasivo.csv-num', data, layout, {responsive: true});
+  })
+</script>
+<div id="plot-clin_dispositivo_invasivo.csv-cat" class="plot"></div>
+<script>
+  (function(){
+    const labels = ["CVC_IOT_SVD_SNE_PAI", "CVC_IOT_SVD_SNE", "SVD", "NAO", "CVC_SVD", "CVC_SVD_PAI", "CVC_SVD_IOT_SNE_PAI", "NAO ", "CVC_TQT_SVD_SNE_PAI", "CVC_SVD_SNE", "CVC_SVD_IOT_SNE_PAM", "CVCHD_IOT_SVD_SNE_PAI", "CVC_SVD_SNE_PAI", "IOT_SVD_SNE", "IOT_SVD", "CVC_TQT_SVD_SNE", "CVC_IOT_SVD", "SIM_CVC_CVH_SVD_PAI_IOT", "SVD_IOT_SNE", "CVC_SVD_IOT_SNE"];
+    const vals = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+    const data = [{x: labels, y: vals, type: 'bar'}];
+    const layout = {title: 'Contagem de valor', xaxis: {tickangle: -45}, yaxis: {title: 'count'}};
+    Plotly.newPlot('plot-clin_dispositivo_invasivo.csv-cat', data, layout, {responsive: true});
+  })
+</script>
+</details><h3>clin_drogas_vasoativas.csv</h3><div class="meta">linhas: 2, colunas: 3</div><details><summary class="small">Preview, estatísticas e plots</summary><table class="dataframe preview-table">
   <thead>
     <tr style="text-align: right;">
       <th>valor</th>
@@ -447,7 +2252,88 @@ th{background:#f7f7f7}
       <td>0.370732</td>
     </tr>
   </tbody>
-</table><div class="small">Erro lendo clin_drogas_vasoativas.csv: NDFrame.describe() got an unexpected keyword argument &#x27;datetime_is_numeric&#x27;</div><h3>clin_escala_apache_ii.csv</h3><div class="meta">linhas: 1, colunas: 6</div><details><summary class="small">Preview e estatísticas</summary><table class="dataframe preview-table">
+</table><table border="1" class="dataframe desc-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count</th>
+      <th>unique</th>
+      <th>top</th>
+      <th>freq</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>50%</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>valor</th>
+      <td>2</td>
+      <td>2</td>
+      <td>SIM</td>
+      <td>1</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>absoluta</th>
+      <td>2.0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>102.5</td>
+      <td>37.476659</td>
+      <td>76.0</td>
+      <td>89.25</td>
+      <td>102.5</td>
+      <td>115.75</td>
+      <td>129.0</td>
+    </tr>
+    <tr>
+      <th>relativa</th>
+      <td>2.0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>0.5</td>
+      <td>0.182813</td>
+      <td>0.370732</td>
+      <td>0.435366</td>
+      <td>0.5</td>
+      <td>0.564634</td>
+      <td>0.629268</td>
+    </tr>
+  </tbody>
+</table><div id="plot-clin_drogas_vasoativas.csv-num" class="plot"></div>
+<script>
+  (function(){
+    const labels = ["129", "76"];
+    const vals = [1, 1];
+    const data = [{x: labels, y: vals, type: 'bar'}];
+    const layout = {title: 'Contagem de absoluta', xaxis: {tickangle: -45}, yaxis: {title: 'count'}};
+    Plotly.newPlot('plot-clin_drogas_vasoativas.csv-num', data, layout, {responsive: true});
+  })
+</script>
+<div id="plot-clin_drogas_vasoativas.csv-cat" class="plot"></div>
+<script>
+  (function(){
+    const labels = ["SIM", "NAO"];
+    const vals = [1, 1];
+    const data = [{x: labels, y: vals, type: 'bar'}];
+    const layout = {title: 'Contagem de valor', xaxis: {tickangle: -45}, yaxis: {title: 'count'}};
+    Plotly.newPlot('plot-clin_drogas_vasoativas.csv-cat', data, layout, {responsive: true});
+  })
+</script>
+</details><h3>clin_escala_apache_ii.csv</h3><div class="meta">linhas: 1, colunas: 6</div><details><summary class="small">Preview, estatísticas e plots</summary><table class="dataframe preview-table">
   <thead>
     <tr style="text-align: right;">
       <th>n</th>
@@ -468,7 +2354,99 @@ th{background:#f7f7f7}
       <td>8.845572</td>
     </tr>
   </tbody>
-</table><div class="small">Erro lendo clin_escala_apache_ii.csv: NDFrame.describe() got an unexpected keyword argument &#x27;datetime_is_numeric&#x27;</div><h3>clin_feridas_lpp.csv</h3><div class="meta">linhas: 2, colunas: 3</div><details><summary class="small">Preview e estatísticas</summary><table class="dataframe preview-table">
+</table><table border="1" class="dataframe desc-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>50%</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>n</th>
+      <td>1.0</td>
+      <td>205.000000</td>
+      <td></td>
+      <td>205.000000</td>
+      <td>205.000000</td>
+      <td>205.000000</td>
+      <td>205.000000</td>
+      <td>205.000000</td>
+    </tr>
+    <tr>
+      <th>media</th>
+      <td>1.0</td>
+      <td>28.243902</td>
+      <td></td>
+      <td>28.243902</td>
+      <td>28.243902</td>
+      <td>28.243902</td>
+      <td>28.243902</td>
+      <td>28.243902</td>
+    </tr>
+    <tr>
+      <th>mediana</th>
+      <td>1.0</td>
+      <td>29.000000</td>
+      <td></td>
+      <td>29.000000</td>
+      <td>29.000000</td>
+      <td>29.000000</td>
+      <td>29.000000</td>
+      <td>29.000000</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>1.0</td>
+      <td>6.000000</td>
+      <td></td>
+      <td>6.000000</td>
+      <td>6.000000</td>
+      <td>6.000000</td>
+      <td>6.000000</td>
+      <td>6.000000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>1.0</td>
+      <td>50.000000</td>
+      <td></td>
+      <td>50.000000</td>
+      <td>50.000000</td>
+      <td>50.000000</td>
+      <td>50.000000</td>
+      <td>50.000000</td>
+    </tr>
+    <tr>
+      <th>desvio_padrao</th>
+      <td>1.0</td>
+      <td>8.845572</td>
+      <td></td>
+      <td>8.845572</td>
+      <td>8.845572</td>
+      <td>8.845572</td>
+      <td>8.845572</td>
+      <td>8.845572</td>
+    </tr>
+  </tbody>
+</table><div id="plot-clin_escala_apache_ii.csv-num" class="plot"></div>
+<script>
+  (function(){
+    const labels = ["205"];
+    const vals = [1];
+    const data = [{x: labels, y: vals, type: 'bar'}];
+    const layout = {title: 'Contagem de n', xaxis: {tickangle: -45}, yaxis: {title: 'count'}};
+    Plotly.newPlot('plot-clin_escala_apache_ii.csv-num', data, layout, {responsive: true});
+  })
+</script>
+</details><h3>clin_feridas_lpp.csv</h3><div class="meta">linhas: 2, colunas: 3</div><details><summary class="small">Preview, estatísticas e plots</summary><table class="dataframe preview-table">
   <thead>
     <tr style="text-align: right;">
       <th>valor</th>
@@ -488,7 +2466,88 @@ th{background:#f7f7f7}
       <td>0.229268</td>
     </tr>
   </tbody>
-</table><div class="small">Erro lendo clin_feridas_lpp.csv: NDFrame.describe() got an unexpected keyword argument &#x27;datetime_is_numeric&#x27;</div><h3>clin_hemodialise.csv</h3><div class="meta">linhas: 2, colunas: 3</div><details><summary class="small">Preview e estatísticas</summary><table class="dataframe preview-table">
+</table><table border="1" class="dataframe desc-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count</th>
+      <th>unique</th>
+      <th>top</th>
+      <th>freq</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>50%</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>valor</th>
+      <td>2</td>
+      <td>2</td>
+      <td>NAO</td>
+      <td>1</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>absoluta</th>
+      <td>2.0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>102.5</td>
+      <td>78.488853</td>
+      <td>47.0</td>
+      <td>74.75</td>
+      <td>102.5</td>
+      <td>130.25</td>
+      <td>158.0</td>
+    </tr>
+    <tr>
+      <th>relativa</th>
+      <td>2.0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>0.5</td>
+      <td>0.382872</td>
+      <td>0.229268</td>
+      <td>0.364634</td>
+      <td>0.5</td>
+      <td>0.635366</td>
+      <td>0.770732</td>
+    </tr>
+  </tbody>
+</table><div id="plot-clin_feridas_lpp.csv-num" class="plot"></div>
+<script>
+  (function(){
+    const labels = ["158", "47"];
+    const vals = [1, 1];
+    const data = [{x: labels, y: vals, type: 'bar'}];
+    const layout = {title: 'Contagem de absoluta', xaxis: {tickangle: -45}, yaxis: {title: 'count'}};
+    Plotly.newPlot('plot-clin_feridas_lpp.csv-num', data, layout, {responsive: true});
+  })
+</script>
+<div id="plot-clin_feridas_lpp.csv-cat" class="plot"></div>
+<script>
+  (function(){
+    const labels = ["NAO", "SIM"];
+    const vals = [1, 1];
+    const data = [{x: labels, y: vals, type: 'bar'}];
+    const layout = {title: 'Contagem de valor', xaxis: {tickangle: -45}, yaxis: {title: 'count'}};
+    Plotly.newPlot('plot-clin_feridas_lpp.csv-cat', data, layout, {responsive: true});
+  })
+</script>
+</details><h3>clin_hemodialise.csv</h3><div class="meta">linhas: 2, colunas: 3</div><details><summary class="small">Preview, estatísticas e plots</summary><table class="dataframe preview-table">
   <thead>
     <tr style="text-align: right;">
       <th>valor</th>
@@ -508,7 +2567,324 @@ th{background:#f7f7f7}
       <td>0.209756</td>
     </tr>
   </tbody>
-</table><div class="small">Erro lendo clin_hemodialise.csv: NDFrame.describe() got an unexpected keyword argument &#x27;datetime_is_numeric&#x27;</div><h3>clin_parada_cardiorrespiratoria.csv</h3><div class="meta">linhas: 15, colunas: 3</div><details><summary class="small">Preview e estatísticas</summary><table class="dataframe preview-table">
+</table><table border="1" class="dataframe desc-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count</th>
+      <th>unique</th>
+      <th>top</th>
+      <th>freq</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>50%</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>valor</th>
+      <td>2</td>
+      <td>2</td>
+      <td>NAO</td>
+      <td>1</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>absoluta</th>
+      <td>2.0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>102.5</td>
+      <td>84.145707</td>
+      <td>43.0</td>
+      <td>72.75</td>
+      <td>102.5</td>
+      <td>132.25</td>
+      <td>162.0</td>
+    </tr>
+    <tr>
+      <th>relativa</th>
+      <td>2.0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>0.5</td>
+      <td>0.410467</td>
+      <td>0.209756</td>
+      <td>0.354878</td>
+      <td>0.5</td>
+      <td>0.645122</td>
+      <td>0.790244</td>
+    </tr>
+  </tbody>
+</table><div id="plot-clin_hemodialise.csv-num" class="plot"></div>
+<script>
+  (function(){
+    const labels = ["162", "43"];
+    const vals = [1, 1];
+    const data = [{x: labels, y: vals, type: 'bar'}];
+    const layout = {title: 'Contagem de absoluta', xaxis: {tickangle: -45}, yaxis: {title: 'count'}};
+    Plotly.newPlot('plot-clin_hemodialise.csv-num', data, layout, {responsive: true});
+  })
+</script>
+<div id="plot-clin_hemodialise.csv-cat" class="plot"></div>
+<script>
+  (function(){
+    const labels = ["NAO", "SIM"];
+    const vals = [1, 1];
+    const data = [{x: labels, y: vals, type: 'bar'}];
+    const layout = {title: 'Contagem de valor', xaxis: {tickangle: -45}, yaxis: {title: 'count'}};
+    Plotly.newPlot('plot-clin_hemodialise.csv-cat', data, layout, {responsive: true});
+  })
+</script>
+</details><h3>clin_intervencoes.csv</h3><div class="meta">linhas: 7, colunas: 4</div><details><summary class="small">Preview, estatísticas e plots</summary><table class="dataframe preview-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>intervencao</th>
+      <th>sim</th>
+      <th>nao</th>
+      <th>pct_sim</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Ventilação mecânica</td>
+      <td>162</td>
+      <td>43</td>
+      <td>0.790244</td>
+    </tr>
+    <tr>
+      <td>Sedação</td>
+      <td>149</td>
+      <td>56</td>
+      <td>0.726829</td>
+    </tr>
+    <tr>
+      <td>Drogas vasoativas</td>
+      <td>129</td>
+      <td>76</td>
+      <td>0.629268</td>
+    </tr>
+    <tr>
+      <td>Hemodiálise</td>
+      <td>43</td>
+      <td>162</td>
+      <td>0.209756</td>
+    </tr>
+    <tr>
+      <td>Transfusão sanguínea</td>
+      <td>61</td>
+      <td>144</td>
+      <td>0.297561</td>
+    </tr>
+    <tr>
+      <td>Procedimento cirúrgico</td>
+      <td>45</td>
+      <td>160</td>
+      <td>0.219512</td>
+    </tr>
+    <tr>
+      <td>Dispositivos invasivos</td>
+      <td>187</td>
+      <td>18</td>
+      <td>0.912195</td>
+    </tr>
+  </tbody>
+</table><table border="1" class="dataframe desc-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count</th>
+      <th>unique</th>
+      <th>top</th>
+      <th>freq</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>50%</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>intervencao</th>
+      <td>7</td>
+      <td>7</td>
+      <td>Ventilação mecânica</td>
+      <td>1</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>sim</th>
+      <td>7.0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>110.857143</td>
+      <td>60.034514</td>
+      <td>43.0</td>
+      <td>53.0</td>
+      <td>129.0</td>
+      <td>155.5</td>
+      <td>187.0</td>
+    </tr>
+    <tr>
+      <th>nao</th>
+      <td>7.0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>94.142857</td>
+      <td>60.034514</td>
+      <td>18.0</td>
+      <td>49.5</td>
+      <td>76.0</td>
+      <td>152.0</td>
+      <td>162.0</td>
+    </tr>
+    <tr>
+      <th>pct_sim</th>
+      <td>7.0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>0.540767</td>
+      <td>0.292851</td>
+      <td>0.209756</td>
+      <td>0.258537</td>
+      <td>0.629268</td>
+      <td>0.758537</td>
+      <td>0.912195</td>
+    </tr>
+  </tbody>
+</table><div id="plot-clin_intervencoes.csv-num" class="plot"></div>
+<script>
+  (function(){
+    const labels = ["162", "149", "129", "43", "61", "45", "187"];
+    const vals = [1, 1, 1, 1, 1, 1, 1];
+    const data = [{x: labels, y: vals, type: 'bar'}];
+    const layout = {title: 'Contagem de sim', xaxis: {tickangle: -45}, yaxis: {title: 'count'}};
+    Plotly.newPlot('plot-clin_intervencoes.csv-num', data, layout, {responsive: true});
+  })
+</script>
+<div id="plot-clin_intervencoes.csv-cat" class="plot"></div>
+<script>
+  (function(){
+    const labels = ["Ventila\u00e7\u00e3o mec\u00e2nica", "Seda\u00e7\u00e3o", "Drogas vasoativas", "Hemodi\u00e1lise", "Transfus\u00e3o sangu\u00ednea", "Procedimento cir\u00fargico", "Dispositivos invasivos"];
+    const vals = [1, 1, 1, 1, 1, 1, 1];
+    const data = [{x: labels, y: vals, type: 'bar'}];
+    const layout = {title: 'Contagem de intervencao', xaxis: {tickangle: -45}, yaxis: {title: 'count'}};
+    Plotly.newPlot('plot-clin_intervencoes.csv-cat', data, layout, {responsive: true});
+  })
+</script>
+</details><h3>clin_obitos_cuidados_paliativos.csv</h3><div class="meta">linhas: 3, colunas: 2</div><details><summary class="small">Preview, estatísticas e plots</summary><table class="dataframe preview-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>metrica</th>
+      <th>valor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Total de óbitos</td>
+      <td>166.000000</td>
+    </tr>
+    <tr>
+      <td>Óbitos em cuidados paliativos</td>
+      <td>87.000000</td>
+    </tr>
+    <tr>
+      <td>Proporção em cuidados paliativos</td>
+      <td>0.524096</td>
+    </tr>
+  </tbody>
+</table><table border="1" class="dataframe desc-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count</th>
+      <th>unique</th>
+      <th>top</th>
+      <th>freq</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>50%</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>metrica</th>
+      <td>3</td>
+      <td>3</td>
+      <td>Total de óbitos</td>
+      <td>1</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>valor</th>
+      <td>3.0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>84.508032</td>
+      <td>82.766093</td>
+      <td>0.524096</td>
+      <td>43.762048</td>
+      <td>87.0</td>
+      <td>126.5</td>
+      <td>166.0</td>
+    </tr>
+  </tbody>
+</table><div id="plot-clin_obitos_cuidados_paliativos.csv-num" class="plot"></div>
+<script>
+  (function(){
+    const labels = ["166.0", "87.0", "0.5240963855421686"];
+    const vals = [1, 1, 1];
+    const data = [{x: labels, y: vals, type: 'bar'}];
+    const layout = {title: 'Contagem de valor', xaxis: {tickangle: -45}, yaxis: {title: 'count'}};
+    Plotly.newPlot('plot-clin_obitos_cuidados_paliativos.csv-num', data, layout, {responsive: true});
+  })
+</script>
+<div id="plot-clin_obitos_cuidados_paliativos.csv-cat" class="plot"></div>
+<script>
+  (function(){
+    const labels = ["Total de \u00f3bitos", "\u00d3bitos em cuidados paliativos", "Propor\u00e7\u00e3o em cuidados paliativos"];
+    const vals = [1, 1, 1];
+    const data = [{x: labels, y: vals, type: 'bar'}];
+    const layout = {title: 'Contagem de metrica', xaxis: {tickangle: -45}, yaxis: {title: 'count'}};
+    Plotly.newPlot('plot-clin_obitos_cuidados_paliativos.csv-cat', data, layout, {responsive: true});
+  })
+</script>
+</details><h3>clin_parada_cardiorrespiratoria.csv</h3><div class="meta">linhas: 15, colunas: 3</div><details><summary class="small">Preview, estatísticas e plots</summary><table class="dataframe preview-table">
   <thead>
     <tr style="text-align: right;">
       <th>valor</th>
@@ -568,7 +2944,88 @@ th{background:#f7f7f7}
       <td>0.004902</td>
     </tr>
   </tbody>
-</table><div class="small">Erro lendo clin_parada_cardiorrespiratoria.csv: NDFrame.describe() got an unexpected keyword argument &#x27;datetime_is_numeric&#x27;</div><h3>clin_procedencia.csv</h3><div class="meta">linhas: 31, colunas: 3</div><details><summary class="small">Preview e estatísticas</summary><table class="dataframe preview-table">
+</table><table border="1" class="dataframe desc-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count</th>
+      <th>unique</th>
+      <th>top</th>
+      <th>freq</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>50%</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>valor</th>
+      <td>15</td>
+      <td>15</td>
+      <td>SIM(RCP_NAO_REALIZADO)</td>
+      <td>1</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>absoluta</th>
+      <td>15.0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>13.6</td>
+      <td>31.708043</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>10.5</td>
+      <td>126.0</td>
+    </tr>
+    <tr>
+      <th>relativa</th>
+      <td>15.0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>0.066667</td>
+      <td>0.155432</td>
+      <td>0.004902</td>
+      <td>0.004902</td>
+      <td>0.009804</td>
+      <td>0.051471</td>
+      <td>0.617647</td>
+    </tr>
+  </tbody>
+</table><div id="plot-clin_parada_cardiorrespiratoria.csv-num" class="plot"></div>
+<script>
+  (function(){
+    const labels = ["1", "13", "2", "126", "22", "8", "7", "5"];
+    const vals = [6, 2, 2, 1, 1, 1, 1, 1];
+    const data = [{x: labels, y: vals, type: 'bar'}];
+    const layout = {title: 'Contagem de absoluta', xaxis: {tickangle: -45}, yaxis: {title: 'count'}};
+    Plotly.newPlot('plot-clin_parada_cardiorrespiratoria.csv-num', data, layout, {responsive: true});
+  })
+</script>
+<div id="plot-clin_parada_cardiorrespiratoria.csv-cat" class="plot"></div>
+<script>
+  (function(){
+    const labels = ["SIM(RCP_NAO_REALIZADO)", "NAO", "NAO ", "SIM(RCP_REALIZADO)", ".", "SIM(RCP_NAO_REALIZADA)", "SIM(RCP_NAO_REALIZADO", "N\u00c3O", "SIM", "SIM (RCP_NAO_REALIZADO)", "SIM ", "SIM(REALIZADO_RCP)", "SIM(RETORNOU_OBITO_EM_SEGUIDA", "SIM(RCP_REALIZADA)", "SIM(RCP_REALIZADO_RCE)"];
+    const vals = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+    const data = [{x: labels, y: vals, type: 'bar'}];
+    const layout = {title: 'Contagem de valor', xaxis: {tickangle: -45}, yaxis: {title: 'count'}};
+    Plotly.newPlot('plot-clin_parada_cardiorrespiratoria.csv-cat', data, layout, {responsive: true});
+  })
+</script>
+</details><h3>clin_procedencia.csv</h3><div class="meta">linhas: 31, colunas: 3</div><details><summary class="small">Preview, estatísticas e plots</summary><table class="dataframe preview-table">
   <thead>
     <tr style="text-align: right;">
       <th>valor</th>
@@ -628,7 +3085,88 @@ th{background:#f7f7f7}
       <td>0.063725</td>
     </tr>
   </tbody>
-</table><div class="small">Erro lendo clin_procedencia.csv: NDFrame.describe() got an unexpected keyword argument &#x27;datetime_is_numeric&#x27;</div><h3>clin_procedimento_cirurgico.csv</h3><div class="meta">linhas: 2, colunas: 3</div><details><summary class="small">Preview e estatísticas</summary><table class="dataframe preview-table">
+</table><table border="1" class="dataframe desc-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count</th>
+      <th>unique</th>
+      <th>top</th>
+      <th>freq</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>50%</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>valor</th>
+      <td>31</td>
+      <td>31</td>
+      <td>UPA_CAJURU</td>
+      <td>1</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>absoluta</th>
+      <td>31.0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>6.580645</td>
+      <td>7.446584</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>14.0</td>
+      <td>23.0</td>
+    </tr>
+    <tr>
+      <th>relativa</th>
+      <td>31.0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>0.032258</td>
+      <td>0.036503</td>
+      <td>0.004902</td>
+      <td>0.004902</td>
+      <td>0.004902</td>
+      <td>0.068627</td>
+      <td>0.112745</td>
+    </tr>
+  </tbody>
+</table><div id="plot-clin_procedencia.csv-num" class="plot"></div>
+<script>
+  (function(){
+    const x = [1.55, 2.6500000000000004, 3.7500000000000004, 4.8500000000000005, 5.95, 7.050000000000001, 8.15, 9.25, 10.350000000000001, 11.45, 12.55, 13.650000000000002, 14.75, 15.850000000000001, 16.950000000000003, 18.05, 19.150000000000002, 20.25, 21.35, 22.450000000000003];
+    const y = [18, 1, 1, 0, 0, 0, 0, 0, 0, 0, 2, 4, 0, 1, 1, 0, 1, 1, 0, 1];
+    const data = [{x: x, y: y, type: 'bar'}];
+    const layout = {title: 'Histograma de absoluta', xaxis: {title: 'absoluta'}, yaxis: {title: 'count'}};
+    Plotly.newPlot('plot-clin_procedencia.csv-num', data, layout, {responsive: true});
+  })
+</script>
+<div id="plot-clin_procedencia.csv-cat" class="plot"></div>
+<script>
+  (function(){
+    const labels = ["UPA_CAJURU", "UPA_BOQUEIRAO", "UPA_CIC", "UPA_SITIO_CERCADO", "BUSCA_DIRETA", "UPA_PINHEIRINHO", "UPA_BOA_VISTA", "HOSPITAL_BAIRRO_NOVO", "UPA_CAMPO_COMPRIDO", "UPA_FAZENDINHA", "UPA_TATUQUARA", "UPA_PINHEIRINHO ", "UPA_BAIRRO_NOVO", "BUSCA DIRETA", "UPA_CAMPO_LARGO", "UPA_PINHEIRNHO", "HOSPITAL_DO_TRABALHADOR", "UPA_BOQUEIR\u00c3O", "ENFERMARIA", "HOSPITAL DO TRABALHADOR"];
+    const vals = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+    const data = [{x: labels, y: vals, type: 'bar'}];
+    const layout = {title: 'Contagem de valor', xaxis: {tickangle: -45}, yaxis: {title: 'count'}};
+    Plotly.newPlot('plot-clin_procedencia.csv-cat', data, layout, {responsive: true});
+  })
+</script>
+</details><h3>clin_procedimento_cirurgico.csv</h3><div class="meta">linhas: 2, colunas: 3</div><details><summary class="small">Preview, estatísticas e plots</summary><table class="dataframe preview-table">
   <thead>
     <tr style="text-align: right;">
       <th>valor</th>
@@ -648,7 +3186,88 @@ th{background:#f7f7f7}
       <td>0.219512</td>
     </tr>
   </tbody>
-</table><div class="small">Erro lendo clin_procedimento_cirurgico.csv: NDFrame.describe() got an unexpected keyword argument &#x27;datetime_is_numeric&#x27;</div><h3>clin_sedacao.csv</h3><div class="meta">linhas: 28, colunas: 3</div><details><summary class="small">Preview e estatísticas</summary><table class="dataframe preview-table">
+</table><table border="1" class="dataframe desc-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count</th>
+      <th>unique</th>
+      <th>top</th>
+      <th>freq</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>50%</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>valor</th>
+      <td>2</td>
+      <td>2</td>
+      <td>NAO</td>
+      <td>1</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>absoluta</th>
+      <td>2.0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>102.5</td>
+      <td>81.31728</td>
+      <td>45.0</td>
+      <td>73.75</td>
+      <td>102.5</td>
+      <td>131.25</td>
+      <td>160.0</td>
+    </tr>
+    <tr>
+      <th>relativa</th>
+      <td>2.0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>0.5</td>
+      <td>0.39667</td>
+      <td>0.219512</td>
+      <td>0.359756</td>
+      <td>0.5</td>
+      <td>0.640244</td>
+      <td>0.780488</td>
+    </tr>
+  </tbody>
+</table><div id="plot-clin_procedimento_cirurgico.csv-num" class="plot"></div>
+<script>
+  (function(){
+    const labels = ["160", "45"];
+    const vals = [1, 1];
+    const data = [{x: labels, y: vals, type: 'bar'}];
+    const layout = {title: 'Contagem de absoluta', xaxis: {tickangle: -45}, yaxis: {title: 'count'}};
+    Plotly.newPlot('plot-clin_procedimento_cirurgico.csv-num', data, layout, {responsive: true});
+  })
+</script>
+<div id="plot-clin_procedimento_cirurgico.csv-cat" class="plot"></div>
+<script>
+  (function(){
+    const labels = ["NAO", "SIM"];
+    const vals = [1, 1];
+    const data = [{x: labels, y: vals, type: 'bar'}];
+    const layout = {title: 'Contagem de valor', xaxis: {tickangle: -45}, yaxis: {title: 'count'}};
+    Plotly.newPlot('plot-clin_procedimento_cirurgico.csv-cat', data, layout, {responsive: true});
+  })
+</script>
+</details><h3>clin_sedacao.csv</h3><div class="meta">linhas: 28, colunas: 3</div><details><summary class="small">Preview, estatísticas e plots</summary><table class="dataframe preview-table">
   <thead>
     <tr style="text-align: right;">
       <th>valor</th>
@@ -708,7 +3327,88 @@ th{background:#f7f7f7}
       <td>0.009804</td>
     </tr>
   </tbody>
-</table><div class="small">Erro lendo clin_sedacao.csv: NDFrame.describe() got an unexpected keyword argument &#x27;datetime_is_numeric&#x27;</div><h3>clin_tempo_internacao_uti.csv</h3><div class="meta">linhas: 1, colunas: 6</div><details><summary class="small">Preview e estatísticas</summary><table class="dataframe preview-table">
+</table><table border="1" class="dataframe desc-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count</th>
+      <th>unique</th>
+      <th>top</th>
+      <th>freq</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>50%</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>valor</th>
+      <td>28</td>
+      <td>28</td>
+      <td>FENTANIL_MIDAZOLAM</td>
+      <td>1</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>absoluta</th>
+      <td>28.0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>7.285714</td>
+      <td>17.784423</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>3.25</td>
+      <td>90.0</td>
+    </tr>
+    <tr>
+      <th>relativa</th>
+      <td>28.0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>0.035714</td>
+      <td>0.087179</td>
+      <td>0.004902</td>
+      <td>0.004902</td>
+      <td>0.004902</td>
+      <td>0.015931</td>
+      <td>0.441176</td>
+    </tr>
+  </tbody>
+</table><div id="plot-clin_sedacao.csv-num" class="plot"></div>
+<script>
+  (function(){
+    const labels = ["1", "3", "90", "30", "25", "16", "8", "5", "4", "2"];
+    const vals = [18, 2, 1, 1, 1, 1, 1, 1, 1, 1];
+    const data = [{x: labels, y: vals, type: 'bar'}];
+    const layout = {title: 'Contagem de absoluta', xaxis: {tickangle: -45}, yaxis: {title: 'count'}};
+    Plotly.newPlot('plot-clin_sedacao.csv-num', data, layout, {responsive: true});
+  })
+</script>
+<div id="plot-clin_sedacao.csv-cat" class="plot"></div>
+<script>
+  (function(){
+    const labels = ["FENTANIL_MIDAZOLAM", "NAO", "NAO ", "FENTANIL_MIDAZOLAM ", "PRECEDEX", "MIDAZOLAM_FENTANIL", "FENTANIL_MIDAZOLAM_", "FENTANIL_MIDAZOLAM_PROPOFOL", "FENTANIL_MIDAZOLAN", "FENTANIL_MIDAZOLAM_ROCURONIO", "SIM", "PROPOFOL_FENTANIL_MIDAZOLAM", "PROPOFOL_MIDAZOLAM_FENTANIL", "PROPOFOL_MIDAZOLAM_FENTANILPRECEDEX_MIDAZOLAM_FENTANI", "PRECEDEX_MIDAZOLAM_FENTANIL", "MIDAZOLAM_KETAMINA_ROCURONIO ", "PROPOFOL_FENTANIL", "MIDAZOLAM_FENTANIL_ROCURONIO", "PROPOFOL", "MIDAZOLAM_FENTANIL_PRECEDEX"];
+    const vals = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+    const data = [{x: labels, y: vals, type: 'bar'}];
+    const layout = {title: 'Contagem de valor', xaxis: {tickangle: -45}, yaxis: {title: 'count'}};
+    Plotly.newPlot('plot-clin_sedacao.csv-cat', data, layout, {responsive: true});
+  })
+</script>
+</details><h3>clin_tempo_internacao_uti.csv</h3><div class="meta">linhas: 1, colunas: 6</div><details><summary class="small">Preview, estatísticas e plots</summary><table class="dataframe preview-table">
   <thead>
     <tr style="text-align: right;">
       <th>n</th>
@@ -729,7 +3429,99 @@ th{background:#f7f7f7}
       <td>13.475684</td>
     </tr>
   </tbody>
-</table><div class="small">Erro lendo clin_tempo_internacao_uti.csv: NDFrame.describe() got an unexpected keyword argument &#x27;datetime_is_numeric&#x27;</div><h3>clin_transfusao_sanguinea.csv</h3><div class="meta">linhas: 2, colunas: 3</div><details><summary class="small">Preview e estatísticas</summary><table class="dataframe preview-table">
+</table><table border="1" class="dataframe desc-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>50%</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>n</th>
+      <td>1.0</td>
+      <td>205.000000</td>
+      <td></td>
+      <td>205.000000</td>
+      <td>205.000000</td>
+      <td>205.000000</td>
+      <td>205.000000</td>
+      <td>205.000000</td>
+    </tr>
+    <tr>
+      <th>media</th>
+      <td>1.0</td>
+      <td>12.482927</td>
+      <td></td>
+      <td>12.482927</td>
+      <td>12.482927</td>
+      <td>12.482927</td>
+      <td>12.482927</td>
+      <td>12.482927</td>
+    </tr>
+    <tr>
+      <th>mediana</th>
+      <td>1.0</td>
+      <td>7.000000</td>
+      <td></td>
+      <td>7.000000</td>
+      <td>7.000000</td>
+      <td>7.000000</td>
+      <td>7.000000</td>
+      <td>7.000000</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>1.0</td>
+      <td>1.000000</td>
+      <td></td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>1.0</td>
+      <td>89.000000</td>
+      <td></td>
+      <td>89.000000</td>
+      <td>89.000000</td>
+      <td>89.000000</td>
+      <td>89.000000</td>
+      <td>89.000000</td>
+    </tr>
+    <tr>
+      <th>desvio_padrao</th>
+      <td>1.0</td>
+      <td>13.475684</td>
+      <td></td>
+      <td>13.475684</td>
+      <td>13.475684</td>
+      <td>13.475684</td>
+      <td>13.475684</td>
+      <td>13.475684</td>
+    </tr>
+  </tbody>
+</table><div id="plot-clin_tempo_internacao_uti.csv-num" class="plot"></div>
+<script>
+  (function(){
+    const labels = ["205"];
+    const vals = [1];
+    const data = [{x: labels, y: vals, type: 'bar'}];
+    const layout = {title: 'Contagem de n', xaxis: {tickangle: -45}, yaxis: {title: 'count'}};
+    Plotly.newPlot('plot-clin_tempo_internacao_uti.csv-num', data, layout, {responsive: true});
+  })
+</script>
+</details><h3>clin_transfusao_sanguinea.csv</h3><div class="meta">linhas: 2, colunas: 3</div><details><summary class="small">Preview, estatísticas e plots</summary><table class="dataframe preview-table">
   <thead>
     <tr style="text-align: right;">
       <th>valor</th>
@@ -749,7 +3541,88 @@ th{background:#f7f7f7}
       <td>0.297561</td>
     </tr>
   </tbody>
-</table><div class="small">Erro lendo clin_transfusao_sanguinea.csv: NDFrame.describe() got an unexpected keyword argument &#x27;datetime_is_numeric&#x27;</div><h3>clin_uti.csv</h3><div class="meta">linhas: 1, colunas: 6</div><details><summary class="small">Preview e estatísticas</summary><table class="dataframe preview-table">
+</table><table border="1" class="dataframe desc-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count</th>
+      <th>unique</th>
+      <th>top</th>
+      <th>freq</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>50%</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>valor</th>
+      <td>2</td>
+      <td>2</td>
+      <td>NAO</td>
+      <td>1</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>absoluta</th>
+      <td>2.0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>102.5</td>
+      <td>58.689863</td>
+      <td>61.0</td>
+      <td>81.75</td>
+      <td>102.5</td>
+      <td>123.25</td>
+      <td>144.0</td>
+    </tr>
+    <tr>
+      <th>relativa</th>
+      <td>2.0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>0.5</td>
+      <td>0.286292</td>
+      <td>0.297561</td>
+      <td>0.39878</td>
+      <td>0.5</td>
+      <td>0.60122</td>
+      <td>0.702439</td>
+    </tr>
+  </tbody>
+</table><div id="plot-clin_transfusao_sanguinea.csv-num" class="plot"></div>
+<script>
+  (function(){
+    const labels = ["144", "61"];
+    const vals = [1, 1];
+    const data = [{x: labels, y: vals, type: 'bar'}];
+    const layout = {title: 'Contagem de absoluta', xaxis: {tickangle: -45}, yaxis: {title: 'count'}};
+    Plotly.newPlot('plot-clin_transfusao_sanguinea.csv-num', data, layout, {responsive: true});
+  })
+</script>
+<div id="plot-clin_transfusao_sanguinea.csv-cat" class="plot"></div>
+<script>
+  (function(){
+    const labels = ["NAO", "SIM"];
+    const vals = [1, 1];
+    const data = [{x: labels, y: vals, type: 'bar'}];
+    const layout = {title: 'Contagem de valor', xaxis: {tickangle: -45}, yaxis: {title: 'count'}};
+    Plotly.newPlot('plot-clin_transfusao_sanguinea.csv-cat', data, layout, {responsive: true});
+  })
+</script>
+</details><h3>clin_uti.csv</h3><div class="meta">linhas: 1, colunas: 6</div><details><summary class="small">Preview, estatísticas e plots</summary><table class="dataframe preview-table">
   <thead>
     <tr style="text-align: right;">
       <th>n</th>
@@ -770,7 +3643,99 @@ th{background:#f7f7f7}
       <td>0.912819</td>
     </tr>
   </tbody>
-</table><div class="small">Erro lendo clin_uti.csv: NDFrame.describe() got an unexpected keyword argument &#x27;datetime_is_numeric&#x27;</div><h3>clin_ventilacao_mecanica.csv</h3><div class="meta">linhas: 4, colunas: 3</div><details><summary class="small">Preview e estatísticas</summary><table class="dataframe preview-table">
+</table><table border="1" class="dataframe desc-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>50%</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>n</th>
+      <td>1.0</td>
+      <td>205.000000</td>
+      <td></td>
+      <td>205.000000</td>
+      <td>205.000000</td>
+      <td>205.000000</td>
+      <td>205.000000</td>
+      <td>205.000000</td>
+    </tr>
+    <tr>
+      <th>media</th>
+      <td>1.0</td>
+      <td>1.990244</td>
+      <td></td>
+      <td>1.990244</td>
+      <td>1.990244</td>
+      <td>1.990244</td>
+      <td>1.990244</td>
+      <td>1.990244</td>
+    </tr>
+    <tr>
+      <th>mediana</th>
+      <td>1.0</td>
+      <td>2.000000</td>
+      <td></td>
+      <td>2.000000</td>
+      <td>2.000000</td>
+      <td>2.000000</td>
+      <td>2.000000</td>
+      <td>2.000000</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>1.0</td>
+      <td>1.000000</td>
+      <td></td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>1.0</td>
+      <td>9.000000</td>
+      <td></td>
+      <td>9.000000</td>
+      <td>9.000000</td>
+      <td>9.000000</td>
+      <td>9.000000</td>
+      <td>9.000000</td>
+    </tr>
+    <tr>
+      <th>desvio_padrao</th>
+      <td>1.0</td>
+      <td>0.912819</td>
+      <td></td>
+      <td>0.912819</td>
+      <td>0.912819</td>
+      <td>0.912819</td>
+      <td>0.912819</td>
+      <td>0.912819</td>
+    </tr>
+  </tbody>
+</table><div id="plot-clin_uti.csv-num" class="plot"></div>
+<script>
+  (function(){
+    const labels = ["205"];
+    const vals = [1];
+    const data = [{x: labels, y: vals, type: 'bar'}];
+    const layout = {title: 'Contagem de n', xaxis: {tickangle: -45}, yaxis: {title: 'count'}};
+    Plotly.newPlot('plot-clin_uti.csv-num', data, layout, {responsive: true});
+  })
+</script>
+</details><h3>clin_ventilacao_mecanica.csv</h3><div class="meta">linhas: 4, colunas: 3</div><details><summary class="small">Preview, estatísticas e plots</summary><table class="dataframe preview-table">
   <thead>
     <tr style="text-align: right;">
       <th>valor</th>
@@ -800,7 +3765,88 @@ th{background:#f7f7f7}
       <td>0.024390</td>
     </tr>
   </tbody>
-</table><div class="small">Erro lendo clin_ventilacao_mecanica.csv: NDFrame.describe() got an unexpected keyword argument &#x27;datetime_is_numeric&#x27;</div><h3>clin_vicios.csv</h3><div class="meta">linhas: 32, colunas: 3</div><details><summary class="small">Preview e estatísticas</summary><table class="dataframe preview-table">
+</table><table border="1" class="dataframe desc-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count</th>
+      <th>unique</th>
+      <th>top</th>
+      <th>freq</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>50%</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>valor</th>
+      <td>4</td>
+      <td>4</td>
+      <td>SIM</td>
+      <td>1</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>absoluta</th>
+      <td>4.0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>51.25</td>
+      <td>62.601251</td>
+      <td>5.0</td>
+      <td>12.5</td>
+      <td>29.0</td>
+      <td>67.75</td>
+      <td>142.0</td>
+    </tr>
+    <tr>
+      <th>relativa</th>
+      <td>4.0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>0.25</td>
+      <td>0.305372</td>
+      <td>0.02439</td>
+      <td>0.060976</td>
+      <td>0.141463</td>
+      <td>0.330488</td>
+      <td>0.692683</td>
+    </tr>
+  </tbody>
+</table><div id="plot-clin_ventilacao_mecanica.csv-num" class="plot"></div>
+<script>
+  (function(){
+    const labels = ["142", "43", "15", "5"];
+    const vals = [1, 1, 1, 1];
+    const data = [{x: labels, y: vals, type: 'bar'}];
+    const layout = {title: 'Contagem de absoluta', xaxis: {tickangle: -45}, yaxis: {title: 'count'}};
+    Plotly.newPlot('plot-clin_ventilacao_mecanica.csv-num', data, layout, {responsive: true});
+  })
+</script>
+<div id="plot-clin_ventilacao_mecanica.csv-cat" class="plot"></div>
+<script>
+  (function(){
+    const labels = ["SIM", "NAO", "CN", "AA"];
+    const vals = [1, 1, 1, 1];
+    const data = [{x: labels, y: vals, type: 'bar'}];
+    const layout = {title: 'Contagem de valor', xaxis: {tickangle: -45}, yaxis: {title: 'count'}};
+    Plotly.newPlot('plot-clin_ventilacao_mecanica.csv-cat', data, layout, {responsive: true});
+  })
+</script>
+</details><h3>clin_vicios.csv</h3><div class="meta">linhas: 32, colunas: 3</div><details><summary class="small">Preview, estatísticas e plots</summary><table class="dataframe preview-table">
   <thead>
     <tr style="text-align: right;">
       <th>valor</th>
@@ -860,7 +3906,88 @@ th{background:#f7f7f7}
       <td>0.019704</td>
     </tr>
   </tbody>
-</table><div class="small">Erro lendo clin_vicios.csv: NDFrame.describe() got an unexpected keyword argument &#x27;datetime_is_numeric&#x27;</div><h3>demo_faixa_etaria.csv</h3><div class="meta">linhas: 1, colunas: 6</div><details><summary class="small">Preview e estatísticas</summary><table class="dataframe preview-table">
+</table><table border="1" class="dataframe desc-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count</th>
+      <th>unique</th>
+      <th>top</th>
+      <th>freq</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>50%</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>valor</th>
+      <td>32</td>
+      <td>32</td>
+      <td>NAO</td>
+      <td>1</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>absoluta</th>
+      <td>32.0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>6.34375</td>
+      <td>11.24395</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>6.0</td>
+      <td>54.0</td>
+    </tr>
+    <tr>
+      <th>relativa</th>
+      <td>32.0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>0.03125</td>
+      <td>0.055389</td>
+      <td>0.004926</td>
+      <td>0.004926</td>
+      <td>0.004926</td>
+      <td>0.029557</td>
+      <td>0.26601</td>
+    </tr>
+  </tbody>
+</table><div id="plot-clin_vicios.csv-num" class="plot"></div>
+<script>
+  (function(){
+    const x = [2.325, 4.975, 7.625, 10.274999999999999, 12.925, 15.575, 18.225, 20.875, 23.525, 26.174999999999997, 28.825, 31.474999999999998, 34.125, 36.775, 39.425, 42.075, 44.724999999999994, 47.375, 50.025, 52.675];
+    const y = [22, 3, 1, 2, 0, 0, 0, 0, 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1];
+    const data = [{x: x, y: y, type: 'bar'}];
+    const layout = {title: 'Histograma de absoluta', xaxis: {title: 'absoluta'}, yaxis: {title: 'count'}};
+    Plotly.newPlot('plot-clin_vicios.csv-num', data, layout, {responsive: true});
+  })
+</script>
+<div id="plot-clin_vicios.csv-cat" class="plot"></div>
+<script>
+  (function(){
+    const labels = ["NAO", "TABAGISMO", "NAO ", "TABAGISTA", "TABAGISTA_ETILISTA", "TABAGISMO_ETILISMO", "ETILISMO", "ETILISTA", "TABAGISMO ", "ETILISTA_TABAGISTA", "NEGA", "ETILISMO_TABAGISMO", "TABAGISMO_ETILISMO ", "SPAS", "USUARIO_DE_SPAS", ".", "ALCOOL_TABAGISMO", "N\u00c3O", "TABAGISTA_ETILISTA ", "ETILISTA_SPAS"];
+    const vals = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+    const data = [{x: labels, y: vals, type: 'bar'}];
+    const layout = {title: 'Contagem de valor', xaxis: {tickangle: -45}, yaxis: {title: 'count'}};
+    Plotly.newPlot('plot-clin_vicios.csv-cat', data, layout, {responsive: true});
+  })
+</script>
+</details><h3>demo_faixa_etaria.csv</h3><div class="meta">linhas: 1, colunas: 6</div><details><summary class="small">Preview, estatísticas e plots</summary><table class="dataframe preview-table">
   <thead>
     <tr style="text-align: right;">
       <th>n</th>
@@ -881,7 +4008,99 @@ th{background:#f7f7f7}
       <td>16.238121</td>
     </tr>
   </tbody>
-</table><div class="small">Erro lendo demo_faixa_etaria.csv: NDFrame.describe() got an unexpected keyword argument &#x27;datetime_is_numeric&#x27;</div><h3>demo_genero.csv</h3><div class="meta">linhas: 3, colunas: 3</div><details><summary class="small">Preview e estatísticas</summary><table class="dataframe preview-table">
+</table><table border="1" class="dataframe desc-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>50%</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>n</th>
+      <td>1.0</td>
+      <td>205.000000</td>
+      <td></td>
+      <td>205.000000</td>
+      <td>205.000000</td>
+      <td>205.000000</td>
+      <td>205.000000</td>
+      <td>205.000000</td>
+    </tr>
+    <tr>
+      <th>media</th>
+      <td>1.0</td>
+      <td>68.287805</td>
+      <td></td>
+      <td>68.287805</td>
+      <td>68.287805</td>
+      <td>68.287805</td>
+      <td>68.287805</td>
+      <td>68.287805</td>
+    </tr>
+    <tr>
+      <th>mediana</th>
+      <td>1.0</td>
+      <td>72.000000</td>
+      <td></td>
+      <td>72.000000</td>
+      <td>72.000000</td>
+      <td>72.000000</td>
+      <td>72.000000</td>
+      <td>72.000000</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>1.0</td>
+      <td>19.000000</td>
+      <td></td>
+      <td>19.000000</td>
+      <td>19.000000</td>
+      <td>19.000000</td>
+      <td>19.000000</td>
+      <td>19.000000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>1.0</td>
+      <td>96.000000</td>
+      <td></td>
+      <td>96.000000</td>
+      <td>96.000000</td>
+      <td>96.000000</td>
+      <td>96.000000</td>
+      <td>96.000000</td>
+    </tr>
+    <tr>
+      <th>desvio_padrao</th>
+      <td>1.0</td>
+      <td>16.238121</td>
+      <td></td>
+      <td>16.238121</td>
+      <td>16.238121</td>
+      <td>16.238121</td>
+      <td>16.238121</td>
+      <td>16.238121</td>
+    </tr>
+  </tbody>
+</table><div id="plot-demo_faixa_etaria.csv-num" class="plot"></div>
+<script>
+  (function(){
+    const labels = ["205"];
+    const vals = [1];
+    const data = [{x: labels, y: vals, type: 'bar'}];
+    const layout = {title: 'Contagem de n', xaxis: {tickangle: -45}, yaxis: {title: 'count'}};
+    Plotly.newPlot('plot-demo_faixa_etaria.csv-num', data, layout, {responsive: true});
+  })
+</script>
+</details><h3>demo_genero.csv</h3><div class="meta">linhas: 3, colunas: 3</div><details><summary class="small">Preview, estatísticas e plots</summary><table class="dataframe preview-table">
   <thead>
     <tr style="text-align: right;">
       <th>valor</th>
@@ -906,7 +4125,88 @@ th{background:#f7f7f7}
       <td>0.004878</td>
     </tr>
   </tbody>
-</table><div class="small">Erro lendo demo_genero.csv: NDFrame.describe() got an unexpected keyword argument &#x27;datetime_is_numeric&#x27;</div><h3>demo_local_residencia.csv</h3><div class="meta">linhas: 8, colunas: 3</div><details><summary class="small">Preview e estatísticas</summary><table class="dataframe preview-table">
+</table><table border="1" class="dataframe desc-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count</th>
+      <th>unique</th>
+      <th>top</th>
+      <th>freq</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>50%</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>valor</th>
+      <td>3</td>
+      <td>3</td>
+      <td>M</td>
+      <td>1</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>absoluta</th>
+      <td>3.0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>68.333333</td>
+      <td>60.210741</td>
+      <td>1.0</td>
+      <td>44.0</td>
+      <td>87.0</td>
+      <td>102.0</td>
+      <td>117.0</td>
+    </tr>
+    <tr>
+      <th>relativa</th>
+      <td>3.0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>0.333333</td>
+      <td>0.293711</td>
+      <td>0.004878</td>
+      <td>0.214634</td>
+      <td>0.42439</td>
+      <td>0.497561</td>
+      <td>0.570732</td>
+    </tr>
+  </tbody>
+</table><div id="plot-demo_genero.csv-num" class="plot"></div>
+<script>
+  (function(){
+    const labels = ["117", "87", "1"];
+    const vals = [1, 1, 1];
+    const data = [{x: labels, y: vals, type: 'bar'}];
+    const layout = {title: 'Contagem de absoluta', xaxis: {tickangle: -45}, yaxis: {title: 'count'}};
+    Plotly.newPlot('plot-demo_genero.csv-num', data, layout, {responsive: true});
+  })
+</script>
+<div id="plot-demo_genero.csv-cat" class="plot"></div>
+<script>
+  (function(){
+    const labels = ["M", "F", "OUTRO"];
+    const vals = [1, 1, 1];
+    const data = [{x: labels, y: vals, type: 'bar'}];
+    const layout = {title: 'Contagem de valor', xaxis: {tickangle: -45}, yaxis: {title: 'count'}};
+    Plotly.newPlot('plot-demo_genero.csv-cat', data, layout, {responsive: true});
+  })
+</script>
+</details><h3>demo_local_residencia.csv</h3><div class="meta">linhas: 8, colunas: 3</div><details><summary class="small">Preview, estatísticas e plots</summary><table class="dataframe preview-table">
   <thead>
     <tr style="text-align: right;">
       <th>valor</th>
@@ -956,6 +4256,87 @@ th{background:#f7f7f7}
       <td>0.004878</td>
     </tr>
   </tbody>
-</table><div class="small">Erro lendo demo_local_residencia.csv: NDFrame.describe() got an unexpected keyword argument &#x27;datetime_is_numeric&#x27;</div></div><div class="section small">Gerado por `generate_profile_report.py`</div>
+</table><table border="1" class="dataframe desc-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count</th>
+      <th>unique</th>
+      <th>top</th>
+      <th>freq</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>50%</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>valor</th>
+      <td>8</td>
+      <td>8</td>
+      <td>S</td>
+      <td>1</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>absoluta</th>
+      <td>8.0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>25.625</td>
+      <td>46.610659</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>7.5</td>
+      <td>19.5</td>
+      <td>137.0</td>
+    </tr>
+    <tr>
+      <th>relativa</th>
+      <td>8.0</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>0.125</td>
+      <td>0.227369</td>
+      <td>0.004878</td>
+      <td>0.004878</td>
+      <td>0.036585</td>
+      <td>0.095122</td>
+      <td>0.668293</td>
+    </tr>
+  </tbody>
+</table><div id="plot-demo_local_residencia.csv-num" class="plot"></div>
+<script>
+  (function(){
+    const labels = ["1", "14", "137", "36"];
+    const vals = [4, 2, 1, 1];
+    const data = [{x: labels, y: vals, type: 'bar'}];
+    const layout = {title: 'Contagem de absoluta', xaxis: {tickangle: -45}, yaxis: {title: 'count'}};
+    Plotly.newPlot('plot-demo_local_residencia.csv-num', data, layout, {responsive: true});
+  })
+</script>
+<div id="plot-demo_local_residencia.csv-cat" class="plot"></div>
+<script>
+  (function(){
+    const labels = ["S", "N", "O", "L", "C", "SIM", "17", "0"];
+    const vals = [1, 1, 1, 1, 1, 1, 1, 1];
+    const data = [{x: labels, y: vals, type: 'bar'}];
+    const layout = {title: 'Contagem de valor', xaxis: {tickangle: -45}, yaxis: {title: 'count'}};
+    Plotly.newPlot('plot-demo_local_residencia.csv-cat', data, layout, {responsive: true});
+  })
+</script>
+</details><div class="note">Nenhum CSV descritivo encontrado em reports/descriptive/</div></div><div class="section small">Gerado por generate_profile_report.py</div>
 </body>
 </html>
