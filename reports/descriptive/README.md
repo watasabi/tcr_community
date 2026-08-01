@@ -14,6 +14,8 @@ Este diretório contém tabelas descritivas geradas a partir da base de paciente
 - `clin_diagnostico_principal.csv` — frequência de diagnóstico principal
 - `clin_comorbidades.csv` — frequência de comorbidades
 - `clin_ventilacao_mecanica.csv` — frequência de ventilação mecânica
+- `clin_ventilacao_mecanica_resumo.csv` — ventilação mecânica (SIM, NÃO, CN, AA)
+- `clin_dispositivos_invasivos_por_tipo.csv` — contagem por dispositivo (CVC, IOT, SVD, etc.)
 - `clin_drogas_vasoativas.csv` — frequência de uso de drogas vasoativas
 - `clin_hemodialise.csv` — frequência de hemodiálise
 - `clin_procedimento_cirurgico.csv` — frequência de procedimentos cirúrgicos

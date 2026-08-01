@@ -1,0 +1,14 @@
+dispositivo,descricao,absoluta,relativa
+CVC,CVC (cateter venoso central),155,0.7560975609756098
+IOT,IOT (intubação orotraqueal),136,0.6634146341463415
+SVD,SVD (sonda vesical de demora),181,0.8829268292682927
+SNE,SNE (sonda nasoenteral),140,0.6829268292682927
+PAI,PAI (pressão arterial invasiva),94,0.4585365853658537
+PAM,PAM (monitorização hemodinâmica invasiva),2,0.00975609756097561
+TQT,TQT (traqueostomia),7,0.03414634146341464
+AVP,AVP (acesso venoso periférico),2,0.00975609756097561
+CVCHD,CVC para hemodiálise,2,0.00975609756097561
+CVH,Cateter venoso para hemodiálise,1,0.004878048780487805
+HD,Acesso para hemodiálise,1,0.004878048780487805
+GTT,GTT (gastrostomia),1,0.004878048780487805
+NE,NE (nutrição enteral),1,0.004878048780487805

@@ -3,26 +3,274 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Relatório de Dados</title>
+  <title>Relatório de Dados — Minimal</title>
   <style>
-body{font-family: Arial, Helvetica, sans-serif; margin:20px}
-h1,h2{color:#222}
-.section{margin-bottom:28px}
-table{border-collapse:collapse;width:100%;margin-top:8px}
-th,td{border:1px solid #ddd;padding:6px 8px;text-align:left}
-th{background:#f7f7f7}
-.small{font-size:0.9em;color:#555}
-.meta{font-size:0.9em;color:#666;margin-bottom:6px}
-.preview{max-height:240px;overflow:auto;border:1px solid #eee;padding:8px;background:#fafafa}
-.plot{margin-top:12px;margin-bottom:12px}
-.note{font-size:0.9em;color:#666}
-img{max-width:100%;height:auto;display:block;margin:8px 0 16px}
-.figure-card{margin-bottom:20px}
-.figure-card h3{margin-bottom:6px}
+:root {
+  --bg: #f5f5f7;
+  --surface: #ffffff;
+  --text: #1d1d1f;
+  --muted: #6e6e73;
+  --line: rgba(0, 0, 0, 0.08);
+  --accent: #0071e3;
+  --radius: 16px;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.04),
+            0 8px 24px rgba(0, 0, 0, 0.04);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  color: var(--text);
+  background: var(--bg);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text",
+    "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 48px 24px 80px;
+}
+
+.hero {
+  margin-bottom: 40px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--line);
+}
+
+.hero .eyebrow {
+  margin: 0 0 8px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  margin: 0 0 8px;
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+
+.hero .subtitle {
+  margin: 0;
+  color: var(--muted);
+  font-size: 16px;
+}
+
+.toc {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 20px 0 0;
+}
+
+.toc a {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 980px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  color: var(--text);
+  text-decoration: none;
+  font-size: 13px;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.toc a:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.section {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 28px 28px 24px;
+  margin-bottom: 24px;
+}
+
+.section > h2 {
+  margin: 0 0 6px;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.section > h3,
+details h3 {
+  margin: 28px 0 10px;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.section > h3:first-of-type {
+  margin-top: 18px;
+}
+
+.meta, .note, .small {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.meta { margin: 0 0 14px; }
+
+.note {
+  margin: 10px 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-top: 8px;
+  font-size: 13.5px;
+  overflow: hidden;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+}
+
+th, td {
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+
+th {
+  background: #fafafa;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+tr:last-child td,
+tr:last-child th {
+  border-bottom: none;
+}
+
+tbody tr:hover td {
+  background: #fbfbfd;
+}
+
+.preview-table,
+.desc-table {
+  display: block;
+  max-height: 320px;
+  overflow: auto;
+}
+
+details {
+  margin-top: 12px;
+}
+
+details > summary {
+  cursor: pointer;
+  list-style: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 980px;
+  border: 1px solid var(--line);
+  background: #fafafa;
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 500;
+  user-select: none;
+}
+
+details > summary::-webkit-details-marker { display: none; }
+
+details > summary::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-right: 1.5px solid var(--muted);
+  border-bottom: 1.5px solid var(--muted);
+  transform: rotate(-45deg);
+  transition: transform 0.15s ease;
+}
+
+details[open] > summary::before {
+  transform: rotate(45deg);
+}
+
+details[open] > summary {
+  margin-bottom: 14px;
+}
+
+.plot {
+  margin: 16px 0;
+  padding: 8px;
+  border-radius: 12px;
+  background: #fafafa;
+  border: 1px solid var(--line);
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 8px 0 4px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: #fff;
+}
+
+.figure-card {
+  margin: 0 0 28px;
+}
+
+.figure-card h3 {
+  margin: 0 0 10px;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.figure-grid {
+  display: grid;
+  gap: 8px;
+}
+
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.92em;
+  background: #f0f0f2;
+  padding: 1px 6px;
+  border-radius: 6px;
+}
+
+.footer {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 12px;
+  text-align: center;
+}
+
+@media (max-width: 640px) {
+  .page { padding: 28px 16px 56px; }
+  .section { padding: 20px 16px; }
+  th, td { padding: 8px 10px; }
+}
 </style>
 </head>
 <body>
-<h1>Relatório de Dados — gerado 2026-08-01 13:10:09</h1><div class="section"><h2>Association results</h2><h3>Matriz de associação PhiK</h3><p class="note">Coeficiente PhiK (0–1) entre preditoras clínicas e o desfecho. Funciona com variáveis categóricas e numéricas (equivalente a uma matriz de correlação para dados mistos).</p><div class="meta">Fonte: reports/association_phik_matrix.csv</div><script src="https://cdn.plot.ly/plotly-latest.min.js"></script><div id="phik-heatmap" class="plot"></div>
+<div class="page"><header class="hero"><p class="eyebrow">tcr_community</p><h1>Relatório de Dados</h1><p class="subtitle">Gerado em 2026-08-01 13:10:10</p><nav class="toc" aria-label="Seções"><a href="#associacao">Associações</a><a href="#clinica">Análise clínica</a><a href="#figuras">Figuras</a><a href="#descritivos">CSVs descritivos</a></nav></header><div class="section" id="associacao"><h2>Association results</h2><h3>Matriz de associação PhiK</h3><p class="note">Coeficiente PhiK (0–1) entre preditoras clínicas e o desfecho. Funciona com variáveis categóricas e numéricas (equivalente a uma matriz de correlação para dados mistos).</p><div class="meta">Fonte: reports/association_phik_matrix.csv</div><script src="https://cdn.plot.ly/plotly-latest.min.js"></script><div id="phik-heatmap" class="plot"></div>
 <script>
   (function(){
     const labels = ["comorbidades", "ventilacao_mecanica", "drogas_vasoativas", "transfusao_sanguinea", "escala_apache_ii", "hemodialise", "procedimento_cirurgico", "cuidados_paliativos", "desfecho_padronizado"];
@@ -33,7 +281,7 @@ img{max-width:100%;height:auto;display:block;margin:8px 0 16px}
       x: labels,
       y: labels,
       type: 'heatmap',
-      colorscale: "Blues",
+      colorscale: [[0, "#f5f5f7"], [0.5, "#64b5f6"], [1, "#0071e3"]],
       zmin: 0,
       zmax: 1,
       text: text,
@@ -49,9 +297,9 @@ img{max-width:100%;height:auto;display:block;margin:8px 0 16px}
       margin: {l: 140, r: 40, t: 60, b: 120},
       xaxis: {tickangle: -40, side: 'bottom'},
       yaxis: {autorange: 'reversed'},
-      paper_bgcolor: 'white',
-      plot_bgcolor: 'white',
-      font: {color: '#222', size: 12}
+      paper_bgcolor: 'rgba(0,0,0,0)',
+      plot_bgcolor: 'rgba(0,0,0,0)',
+      font: {color: '#1d1d1f', size: 12}
     };
     Plotly.newPlot('phik-heatmap', data, layout, {responsive: true});
   })();
@@ -390,7 +638,7 @@ img{max-width:100%;height:auto;display:block;margin:8px 0 16px}
     const vars = ["escala_apache_ii", "cuidados_paliativos", "drogas_vasoativas", "ventilacao_mecanica", "comorbidades", "procedimento_cirurgico", "hemodialise", "transfusao_sanguinea"];
     const varsFull = ["escala_apache_ii", "cuidados_paliativos", "drogas_vasoativas", "ventilacao_mecanica", "comorbidades", "procedimento_cirurgico", "hemodialise", "transfusao_sanguinea"];
     const vals = [8.829639755313321, 5.126456554101959, 2.9126786050578315, 0.9950559959243427, 0.9837335473840408, 0.6955518970391315, 0.5089125606081534, 0.4840037862489124];
-    const colors = ["crimson", "crimson", "crimson", "steelblue", "steelblue", "steelblue", "steelblue", "steelblue"];
+    const colors = ["#ff3b30", "#ff3b30", "#ff3b30", "#0071e3", "#0071e3", "#0071e3", "#0071e3", "#0071e3"];
     const data = [{
       x: vars,
       y: vals,
@@ -403,7 +651,7 @@ img{max-width:100%;height:auto;display:block;margin:8px 0 16px}
     Plotly.newPlot('assoc-plot', data, layout, {responsive: true});
   })();
 </script>
-</details></div><div class="section"><h2>Análise descritiva clínica</h2><p class="note">Diagnósticos agrupados por categoria, comorbidades, causas de óbito, intervenções e APACHE II.</p><h3>Diagnósticos por categoria</h3><table class="dataframe">
+</details></div><div class="section" id="clinica"><h2>Análise descritiva clínica</h2><p class="note">Diagnósticos agrupados por categoria, comorbidades, causas de óbito, intervenções e APACHE II.</p><h3>Diagnósticos por categoria</h3><table class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th>categoria</th>
@@ -910,7 +1158,7 @@ img{max-width:100%;height:auto;display:block;margin:8px 0 16px}
       <td>12.482927</td>
     </tr>
   </tbody>
-</table></div><div class="section"><h2>Figuras</h2><p class="note">Todas as imagens em <code>reports/figures/</code> (24 arquivos).</p><div class="figure-card"><h3>APACHE II por desfecho</h3><div class="meta">apache_by_desfecho.png</div><img src="figures/apache_by_desfecho.png" alt="APACHE II por desfecho" style="max-width:100%;height:auto;" /></div><div class="figure-card"><h3>Mortalidade observada vs estimada (APACHE II)</h3><div class="meta">apache_mortalidade_observada_vs_estimada.png</div><img src="figures/apache_mortalidade_observada_vs_estimada.png" alt="Mortalidade observada vs estimada (APACHE II)" style="max-width:100%;height:auto;" /></div><div class="figure-card"><h3>APACHE II × tempo de internação</h3><div class="meta">apache_vs_tempo_internacao.png</div><img src="figures/apache_vs_tempo_internacao.png" alt="APACHE II × tempo de internação" style="max-width:100%;height:auto;" /></div><div class="figure-card"><h3>Matriz de associação PhiK</h3><div class="meta">association_phik_matrix.png</div><img src="figures/association_phik_matrix.png" alt="Matriz de associação PhiK" style="max-width:100%;height:auto;" /></div><div class="figure-card"><h3>Principais causas de óbito</h3><div class="meta">causa_obito_top15.png</div><img src="figures/causa_obito_top15.png" alt="Principais causas de óbito" style="max-width:100%;height:auto;" /></div><div class="figure-card"><h3>10 comorbidades mais frequentes</h3><div class="meta">comorbidades_top10.png</div><img src="figures/comorbidades_top10.png" alt="10 comorbidades mais frequentes" style="max-width:100%;height:auto;" /></div><div class="figure-card"><h3>Composição de desfechos clínicos</h3><div class="meta">desfecho_pie.png</div><img src="figures/desfecho_pie.png" alt="Composição de desfechos clínicos" style="max-width:100%;height:auto;" /></div><div class="figure-card"><h3>Diagnósticos por categoria clínica</h3><div class="meta">diagnostico_por_categoria.png</div><img src="figures/diagnostico_por_categoria.png" alt="Diagnósticos por categoria clínica" style="max-width:100%;height:auto;" /></div><div class="figure-card"><h3>Top 20 diagnósticos principais</h3><div class="meta">diagnostico_top20.png</div><img src="figures/diagnostico_top20.png" alt="Top 20 diagnósticos principais" style="max-width:100%;height:auto;" /></div><div class="figure-card"><h3>Histograma de faixa etária</h3><div class="meta">faixa_etaria_hist.png</div><img src="figures/faixa_etaria_hist.png" alt="Histograma de faixa etária" style="max-width:100%;height:auto;" /></div><div class="figure-card"><h3>Desfecho por comorbidades</h3><div class="meta">obito_por_comorbidades.png</div><img src="figures/obito_por_comorbidades.png" alt="Desfecho por comorbidades" style="max-width:100%;height:auto;" /></div><div class="figure-card"><h3>Desfecho por drogas vasoativas</h3><div class="meta">obito_por_drogas_vasoativas.png</div><img src="figures/obito_por_drogas_vasoativas.png" alt="Desfecho por drogas vasoativas" style="max-width:100%;height:auto;" /></div><div class="figure-card"><h3>Desfecho por hemodiálise</h3><div class="meta">obito_por_hemodialise.png</div><img src="figures/obito_por_hemodialise.png" alt="Desfecho por hemodiálise" style="max-width:100%;height:auto;" /></div><div class="figure-card"><h3>Desfecho por procedimento cirúrgico</h3><div class="meta">obito_por_procedimento_cirurgico.png</div><img src="figures/obito_por_procedimento_cirurgico.png" alt="Desfecho por procedimento cirúrgico" style="max-width:100%;height:auto;" /></div><div class="figure-card"><h3>Desfecho por transfusão sanguínea</h3><div class="meta">obito_por_transfusao.png</div><img src="figures/obito_por_transfusao.png" alt="Desfecho por transfusão sanguínea" style="max-width:100%;height:auto;" /></div><div class="figure-card"><h3>Desfecho por ventilação mecânica</h3><div class="meta">obito_por_ventilacao.png</div><img src="figures/obito_por_ventilacao.png" alt="Desfecho por ventilação mecânica" style="max-width:100%;height:auto;" /></div><div class="figure-card"><h3>Desfecho por principais vícios</h3><div class="meta">obito_por_vicios_top.png</div><img src="figures/obito_por_vicios_top.png" alt="Desfecho por principais vícios" style="max-width:100%;height:auto;" /></div><div class="figure-card"><h3>Principais procedências de entrada</h3><div class="meta">procedencia_top20.png</div><img src="figures/procedencia_top20.png" alt="Principais procedências de entrada" style="max-width:100%;height:auto;" /></div><div class="figure-card"><h3>RCP × cuidados paliativos</h3><div class="meta">rcp_vs_cuidados_paliativos.png</div><img src="figures/rcp_vs_cuidados_paliativos.png" alt="RCP × cuidados paliativos" style="max-width:100%;height:auto;" /></div><div class="figure-card"><h3>Distribuição por gênero</h3><div class="meta">sexo_bar.png</div><img src="figures/sexo_bar.png" alt="Distribuição por gênero" style="max-width:100%;height:auto;" /></div><div class="figure-card"><h3>Tempo médio de internação por desfecho</h3><div class="meta">tempo_internacao_por_desfecho.png</div><img src="figures/tempo_internacao_por_desfecho.png" alt="Tempo médio de internação por desfecho" style="max-width:100%;height:auto;" /></div><div class="figure-card"><h3>Tempo de internação × dispositivo invasivo</h3><div class="meta">tempo_internacao_por_dispositivo_invasivo.png</div><img src="figures/tempo_internacao_por_dispositivo_invasivo.png" alt="Tempo de internação × dispositivo invasivo" style="max-width:100%;height:auto;" /></div><div class="figure-card"><h3>Tempo de internação × feridas LPP</h3><div class="meta">tempo_internacao_por_feridas_lpp.png</div><img src="figures/tempo_internacao_por_feridas_lpp.png" alt="Tempo de internação × feridas LPP" style="max-width:100%;height:auto;" /></div><div class="figure-card"><h3>Tempo de internação por ventilação mecânica</h3><div class="meta">tempo_internacao_por_ventilacao.png</div><img src="figures/tempo_internacao_por_ventilacao.png" alt="Tempo de internação por ventilação mecânica" style="max-width:100%;height:auto;" /></div></div><div class="section"><h2>Descriptive CSVs</h2><h3>clin_apache_mortalidade_faixas.csv</h3><div class="meta">linhas: 8, colunas: 5</div><details><summary class="small">Preview, estatísticas e plots</summary><table class="dataframe preview-table">
+</table></div><div class="section" id="figuras"><h2>Figuras</h2><p class="note">Todas as imagens em <code>reports/figures/</code> (24 arquivos).</p><div class="figure-card"><h3>APACHE II por desfecho</h3><div class="meta">apache_by_desfecho.png</div><img src="figures/apache_by_desfecho.png" alt="APACHE II por desfecho" /></div><div class="figure-card"><h3>Mortalidade observada vs estimada (APACHE II)</h3><div class="meta">apache_mortalidade_observada_vs_estimada.png</div><img src="figures/apache_mortalidade_observada_vs_estimada.png" alt="Mortalidade observada vs estimada (APACHE II)" /></div><div class="figure-card"><h3>APACHE II × tempo de internação</h3><div class="meta">apache_vs_tempo_internacao.png</div><img src="figures/apache_vs_tempo_internacao.png" alt="APACHE II × tempo de internação" /></div><div class="figure-card"><h3>Matriz de associação PhiK</h3><div class="meta">association_phik_matrix.png</div><img src="figures/association_phik_matrix.png" alt="Matriz de associação PhiK" /></div><div class="figure-card"><h3>Principais causas de óbito</h3><div class="meta">causa_obito_top15.png</div><img src="figures/causa_obito_top15.png" alt="Principais causas de óbito" /></div><div class="figure-card"><h3>10 comorbidades mais frequentes</h3><div class="meta">comorbidades_top10.png</div><img src="figures/comorbidades_top10.png" alt="10 comorbidades mais frequentes" /></div><div class="figure-card"><h3>Composição de desfechos clínicos</h3><div class="meta">desfecho_pie.png</div><img src="figures/desfecho_pie.png" alt="Composição de desfechos clínicos" /></div><div class="figure-card"><h3>Diagnósticos por categoria clínica</h3><div class="meta">diagnostico_por_categoria.png</div><img src="figures/diagnostico_por_categoria.png" alt="Diagnósticos por categoria clínica" /></div><div class="figure-card"><h3>Top 20 diagnósticos principais</h3><div class="meta">diagnostico_top20.png</div><img src="figures/diagnostico_top20.png" alt="Top 20 diagnósticos principais" /></div><div class="figure-card"><h3>Histograma de faixa etária</h3><div class="meta">faixa_etaria_hist.png</div><img src="figures/faixa_etaria_hist.png" alt="Histograma de faixa etária" /></div><div class="figure-card"><h3>Desfecho por comorbidades</h3><div class="meta">obito_por_comorbidades.png</div><img src="figures/obito_por_comorbidades.png" alt="Desfecho por comorbidades" /></div><div class="figure-card"><h3>Desfecho por drogas vasoativas</h3><div class="meta">obito_por_drogas_vasoativas.png</div><img src="figures/obito_por_drogas_vasoativas.png" alt="Desfecho por drogas vasoativas" /></div><div class="figure-card"><h3>Desfecho por hemodiálise</h3><div class="meta">obito_por_hemodialise.png</div><img src="figures/obito_por_hemodialise.png" alt="Desfecho por hemodiálise" /></div><div class="figure-card"><h3>Desfecho por procedimento cirúrgico</h3><div class="meta">obito_por_procedimento_cirurgico.png</div><img src="figures/obito_por_procedimento_cirurgico.png" alt="Desfecho por procedimento cirúrgico" /></div><div class="figure-card"><h3>Desfecho por transfusão sanguínea</h3><div class="meta">obito_por_transfusao.png</div><img src="figures/obito_por_transfusao.png" alt="Desfecho por transfusão sanguínea" /></div><div class="figure-card"><h3>Desfecho por ventilação mecânica</h3><div class="meta">obito_por_ventilacao.png</div><img src="figures/obito_por_ventilacao.png" alt="Desfecho por ventilação mecânica" /></div><div class="figure-card"><h3>Desfecho por principais vícios</h3><div class="meta">obito_por_vicios_top.png</div><img src="figures/obito_por_vicios_top.png" alt="Desfecho por principais vícios" /></div><div class="figure-card"><h3>Principais procedências de entrada</h3><div class="meta">procedencia_top20.png</div><img src="figures/procedencia_top20.png" alt="Principais procedências de entrada" /></div><div class="figure-card"><h3>RCP × cuidados paliativos</h3><div class="meta">rcp_vs_cuidados_paliativos.png</div><img src="figures/rcp_vs_cuidados_paliativos.png" alt="RCP × cuidados paliativos" /></div><div class="figure-card"><h3>Distribuição por gênero</h3><div class="meta">sexo_bar.png</div><img src="figures/sexo_bar.png" alt="Distribuição por gênero" /></div><div class="figure-card"><h3>Tempo médio de internação por desfecho</h3><div class="meta">tempo_internacao_por_desfecho.png</div><img src="figures/tempo_internacao_por_desfecho.png" alt="Tempo médio de internação por desfecho" /></div><div class="figure-card"><h3>Tempo de internação × dispositivo invasivo</h3><div class="meta">tempo_internacao_por_dispositivo_invasivo.png</div><img src="figures/tempo_internacao_por_dispositivo_invasivo.png" alt="Tempo de internação × dispositivo invasivo" /></div><div class="figure-card"><h3>Tempo de internação × feridas LPP</h3><div class="meta">tempo_internacao_por_feridas_lpp.png</div><img src="figures/tempo_internacao_por_feridas_lpp.png" alt="Tempo de internação × feridas LPP" /></div><div class="figure-card"><h3>Tempo de internação por ventilação mecânica</h3><div class="meta">tempo_internacao_por_ventilacao.png</div><img src="figures/tempo_internacao_por_ventilacao.png" alt="Tempo de internação por ventilação mecânica" /></div></div><div class="section" id="descritivos"><h2>Descriptive CSVs</h2><h3>clin_apache_mortalidade_faixas.csv</h3><div class="meta">linhas: 8, colunas: 5</div><details><summary class="small">Preview, estatísticas e plots</summary><table class="dataframe preview-table">
   <thead>
     <tr style="text-align: right;">
       <th>faixa_apache</th>
@@ -4920,6 +5168,6 @@ img{max-width:100%;height:auto;display:block;margin:8px 0 16px}
     Plotly.newPlot('plot-demo_local_residencia.csv-cat', data, layout, {responsive: true});
   })();
 </script>
-</details><div class="note">Nenhum CSV descritivo encontrado em reports/descriptive/</div></div><div class="section small">Gerado por generate_profile_report.py</div>
+</details><div class="note">Nenhum CSV descritivo encontrado em reports/descriptive/</div></div><p class="footer">Gerado por generate_profile_report.py</p></div>
 </body>
 </html>

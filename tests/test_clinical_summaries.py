@@ -7,7 +7,10 @@ from tcr_community.stats.clinical_summaries import (
     comorbidity_frequency,
     diagnosis_by_category,
     interventions_table,
+    invasive_device_frequency,
     parse_comorbidity_tokens,
+    parse_invasive_device_tokens,
+    ventilacao_mecanica_table,
 )
 
 
@@ -76,6 +79,40 @@ def test_classify_diagnosis_urinary_not_colecistite() -> None:
         "Doenças gastrointestinais/abdominais"
     )
     assert classify_diagnosis("CISTITE_AGUDA") == "Infecções urinárias"
+
+
+def test_parse_invasive_device_tokens() -> None:
+    tokens = parse_invasive_device_tokens("CVC_IOT_SVD_SNE_PAI")
+    assert tokens == ["CVC", "IOT", "SVD", "SNE", "PAI"]
+
+
+def test_invasive_device_frequency_counts() -> None:
+    df = pd.DataFrame(
+        {
+            "dispositivo_invasivo": [
+                "CVC_IOT",
+                "CVC_SVD",
+                "NAO",
+            ]
+        }
+    )
+    table = invasive_device_frequency(df)
+    cvc = table.loc[table["dispositivo"] == "CVC", "absoluta"].iloc[0]
+    expected_cvc = 2
+    assert cvc == expected_cvc
+
+
+def test_ventilacao_mecanica_table() -> None:
+    df = pd.DataFrame(
+        {"ventilacao_mecanica": ["SIM", "NAO", "CN", "SIM"]}
+    )
+    table = ventilacao_mecanica_table(df)
+    sim = table.loc[table["valor"] == "SIM", "absoluta"].iloc[0]
+    expected_sim = 2
+    assert sim == expected_sim
+
+
+def test_interventions_table_shape() -> None:
     df = pd.DataFrame(
         {
             "ventilacao_mecanica": ["SIM", "NAO", "CN"],
@@ -91,5 +128,5 @@ def test_classify_diagnosis_urinary_not_colecistite() -> None:
     vent = table.loc[
         table["intervencao"] == "Ventilação mecânica", "sim"
     ].iloc[0]
-    expected_vent_count = 2
+    expected_vent_count = 1
     assert vent == expected_vent_count

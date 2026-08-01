@@ -200,6 +200,49 @@ _COMORBIDITY_STOPWORDS: Final[frozenset[str]] = frozenset(
 )
 _MIN_COMORBIDITY_TOKEN_LEN: Final = 2
 
+_NO_DEVICE_TOKENS: Final[frozenset[str]] = frozenset(
+    {"NAO", "N", "NEGA", "NEGOU", "SIM", "S", "CN"}
+)
+
+_KNOWN_DEVICE_ORDER: Final[list[str]] = [
+    "CVC",
+    "IOT",
+    "SVD",
+    "SNE",
+    "PAI",
+    "PAM",
+    "TQT",
+    "AVP",
+    "CVCHD",
+    "CVH",
+    "HD",
+    "GTT",
+    "NE",
+]
+
+_DEVICE_LABELS: Final[dict[str, str]] = {
+    "CVC": "CVC (cateter venoso central)",
+    "IOT": "IOT (intubação orotraqueal)",
+    "SVD": "SVD (sonda vesical de demora)",
+    "SNE": "SNE (sonda nasoenteral)",
+    "PAI": "PAI (pressão arterial invasiva)",
+    "PAM": "PAM (monitorização hemodinâmica invasiva)",
+    "TQT": "TQT (traqueostomia)",
+    "AVP": "AVP (acesso venoso periférico)",
+    "CVCHD": "CVC para hemodiálise",
+    "CVH": "Cateter venoso para hemodiálise",
+    "HD": "Acesso para hemodiálise",
+    "GTT": "GTT (gastrostomia)",
+    "NE": "NE (nutrição enteral)",
+}
+
+_VENTILACAO_LABELS: Final[dict[str, str]] = {
+    "SIM": "SIM (ventilação mecânica)",
+    "NAO": "NÃO",
+    "CN": "CN (cateter nasal — sem VM)",
+    "AA": "AA (ar ambiente — sem VM)",
+}
+
 
 @dataclass(frozen=True)
 class ApacheBand:
@@ -313,13 +356,108 @@ def comorbidity_frequency(
     )
 
 
-def _intervention_is_yes(value: object) -> bool:
+def parse_invasive_device_tokens(value: object) -> list[str]:
+    """Extrai dispositivos individuais de campos compostos."""
+    text = normalize_text(value)
+    if text is None or text in _NO_DEVICE_TOKENS:
+        return []
+    parts = re.split(r"[_,;,\s]+", text)
+    tokens: list[str] = []
+    for part in parts:
+        token = part.strip()
+        if not token or token in _NO_DEVICE_TOKENS:
+            continue
+        tokens.append(token)
+    return tokens
+
+
+def invasive_device_frequency(
+    df: pd.DataFrame,
+    *,
+    raw_col: str = COL_DISPOSITIVO_INVASIVO,
+) -> pd.DataFrame:
+    """Frequência de cada dispositivo invasivo (contagem por paciente)."""
+    if raw_col not in df.columns:
+        return pd.DataFrame(
+            columns=["dispositivo", "descricao", "absoluta", "relativa"]
+        )
+    counter: Counter[str] = Counter()
+    for value in df[raw_col].dropna():
+        counter.update(parse_invasive_device_tokens(value))
+    if not counter:
+        return pd.DataFrame(
+            columns=["dispositivo", "descricao", "absoluta", "relativa"]
+        )
+    total_patients = len(df)
+    ordered = sorted(
+        counter.items(),
+        key=lambda item: (
+            _KNOWN_DEVICE_ORDER.index(item[0])
+            if item[0] in _KNOWN_DEVICE_ORDER
+            else len(_KNOWN_DEVICE_ORDER),
+            -item[1],
+            item[0],
+        ),
+    )
+    return pd.DataFrame(
+        {
+            "dispositivo": [code for code, _ in ordered],
+            "descricao": [
+                _DEVICE_LABELS.get(code, code) for code, _ in ordered
+            ],
+            "absoluta": [count for _, count in ordered],
+            "relativa": [count / total_patients for _, count in ordered],
+        }
+    )
+
+
+def ventilacao_mecanica_table(df: pd.DataFrame) -> pd.DataFrame:
+    """Frequência de ventilação mecânica (SIM, NÃO, CN, AA)."""
+    if COL_VENTILACAO_MECANICA not in df.columns:
+        return pd.DataFrame(
+            columns=["valor", "descricao", "absoluta", "relativa"]
+        )
+    series = df[COL_VENTILACAO_MECANICA].map(normalize_text).dropna()
+    counts = series.value_counts()
+    total = len(df)
+    rows: list[dict[str, object]] = []
+    for code in ("SIM", "NAO", "CN", "AA"):
+        if code not in counts.index:
+            continue
+        rows.append(
+            {
+                "valor": code,
+                "descricao": _VENTILACAO_LABELS.get(code, code),
+                "absoluta": int(counts[code]),
+                "relativa": counts[code] / total,
+            }
+        )
+    for code, count in counts.items():
+        if code in {"SIM", "NAO", "CN", "AA"}:
+            continue
+        rows.append(
+            {
+                "valor": code,
+                "descricao": code,
+                "absoluta": int(count),
+                "relativa": count / total,
+            }
+        )
+    return pd.DataFrame(rows)
+
+
+def _mechanical_ventilation_is_yes(value: object) -> bool:
+    """Indica ventilação mecânica invasiva (apenas SIM)."""
+    return parse_yes_no(value) == "SIM"
+
+
+def _intervention_is_yes(value: object, *, column: str) -> bool:
     """Indica uso de intervenção a partir de valor bruto ou padronizado."""
+    if column == COL_VENTILACAO_MECANICA:
+        return _mechanical_ventilation_is_yes(value)
     text = normalize_text(value)
     if text is None:
         return False
-    if text in {"CN", "AA"}:
-        return True
     flag = parse_yes_no(text)
     if flag == "SIM":
         return True
@@ -335,7 +473,11 @@ def interventions_table(df: pd.DataFrame) -> pd.DataFrame:
     for label, column in INTERVENTION_SPECS:
         if column not in df.columns:
             continue
-        yes_count = int(df[column].map(_intervention_is_yes).sum())
+        yes_count = int(
+            df[column]
+            .apply(lambda v, col=column: _intervention_is_yes(v, column=col))
+            .sum()
+        )
         rows.append(
             {
                 "intervencao": label,
@@ -490,3 +632,19 @@ def apache_vs_los_points(df: pd.DataFrame) -> pd.DataFrame:
             COL_DESFECHO_PADRONIZADO: "desfecho",
         }
     )
+
+
+def los_by_ventilacao_frame(df: pd.DataFrame) -> pd.DataFrame:
+    """Tempo de internação com grupo de ventilação mecânica para gráficos."""
+    cols = [COL_VENTILACAO_MECANICA, COL_TEMPO_UTI]
+    if not all(col in df.columns for col in cols):
+        return pd.DataFrame()
+    subset = df[cols].dropna().copy()
+    subset["ventilacao_grupo"] = subset[COL_VENTILACAO_MECANICA].map(
+        lambda v: (
+            "SIM (ventilação mecânica)"
+            if _mechanical_ventilation_is_yes(v)
+            else "NÃO (sem ventilação mecânica)"
+        )
+    )
+    return subset.rename(columns={COL_TEMPO_UTI: "tempo_uti"})

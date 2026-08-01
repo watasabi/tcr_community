@@ -17,7 +17,7 @@ Este diretório contém os gráficos gerados a partir do dataset processado.
 - `obito_por_procedimento_cirurgico.png` — desfecho por procedimento cirúrgico
 - `obito_por_transfusao.png` — desfecho por transfusão sanguínea
 - `rcp_vs_cuidados_paliativos.png` — cruzamento RCP × cuidados paliativos
-- `tempo_internacao_por_ventilacao.png` — tempo de internação x ventilação mecânica
+- `tempo_internacao_por_ventilacao.png` — histograma de tempo de internação x ventilação mecânica
 - `tempo_internacao_por_feridas_lpp.png` — tempo de internação x feridas LPP
 - `tempo_internacao_por_dispositivo_invasivo.png` — tempo de internação x dispositivo invasivo
 - `obito_por_comorbidades.png` — desfecho por comorbidades

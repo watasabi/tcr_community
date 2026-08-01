@@ -1,0 +1,5 @@
+valor,descricao,absoluta,relativa
+SIM,SIM (ventilação mecânica),142,0.6926829268292682
+NAO,NÃO,43,0.2097560975609756
+CN,CN (cateter nasal — sem VM),15,0.07317073170731707
+AA,AA (ar ambiente — sem VM),5,0.024390243902439025

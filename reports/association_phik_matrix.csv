@@ -1,0 +1,10 @@
+,comorbidades,ventilacao_mecanica,drogas_vasoativas,transfusao_sanguinea,escala_apache_ii,hemodialise,procedimento_cirurgico,cuidados_paliativos,desfecho_padronizado
+comorbidades,1.0,0.0915,0.0,0.1917,0.0793,0.0397,0.1402,0.0,0.1107
+ventilacao_mecanica,0.0915,1.0,0.547,0.2051,0.4715,0.136,0.3565,0.297,0.127
+drogas_vasoativas,0.0,0.547,1.0,0.0915,0.3986,0.1809,0.1652,0.1765,0.2161
+transfusao_sanguinea,0.1917,0.2051,0.0915,1.0,0.0,0.3353,0.2637,0.0782,0.0455
+escala_apache_ii,0.0793,0.4715,0.3986,0.0,1.0,0.2487,0.0384,0.1775,0.5906
+hemodialise,0.0397,0.136,0.1809,0.3353,0.2487,1.0,0.0857,0.2471,0.0512
+procedimento_cirurgico,0.1402,0.3565,0.1652,0.2637,0.0384,0.0857,1.0,0.0,0.0809
+cuidados_paliativos,0.0,0.297,0.1765,0.0782,0.1775,0.2471,0.0,1.0,0.2894
+desfecho_padronizado,0.1107,0.127,0.2161,0.0455,0.5906,0.0512,0.0809,0.2894,1.0

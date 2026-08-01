@@ -21,6 +21,9 @@ from tcr_community.stats.clinical_summaries import (
     deaths_palliative_table,
     diagnosis_by_category,
     interventions_table,
+    invasive_device_frequency,
+    los_by_ventilacao_frame,
+    ventilacao_mecanica_table,
 )
 from tcr_community.stats.descriptive import export_report
 
@@ -55,6 +58,10 @@ def export_tables(clean: pd.DataFrame, raw: pd.DataFrame) -> list[Path]:
         "clin_comorbidades_top10": comorbidity_frequency(raw, top_n=10),
         "clin_causa_obito_top": death_causes_table(clean, top_n=15),
         "clin_intervencoes": interventions_table(clean),
+        "clin_dispositivos_invasivos_por_tipo": invasive_device_frequency(
+            raw
+        ),
+        "clin_ventilacao_mecanica_resumo": ventilacao_mecanica_table(clean),
         "clin_obitos_cuidados_paliativos": deaths_palliative_table(clean),
         "clin_apache_mortalidade_faixas": apache_mortality_table(clean),
         "clin_apache_tempo_internacao": apache_vs_los_summary(clean),
@@ -83,6 +90,73 @@ def _save_bar(df: pd.DataFrame, spec: BarChartSpec) -> Path:
         ax.set_ylabel("Frequência absoluta")
         plt.xticks(rotation=45, ha="right")
     ax.set_title(spec.title)
+    fig.tight_layout()
+    fig.savefig(path, dpi=120)
+    plt.close(fig)
+    return path
+
+
+def _save_los_by_ventilacao_histogram(clean: pd.DataFrame) -> Path | None:
+    los_vm_df = los_by_ventilacao_frame(clean)
+    if los_vm_df.empty:
+        return None
+    FIGURES_DIR.mkdir(parents=True, exist_ok=True)
+    path = FIGURES_DIR / "tempo_internacao_por_ventilacao.png"
+    cap = float(los_vm_df["tempo_uti"].quantile(0.95))
+    plot_df = los_vm_df[los_vm_df["tempo_uti"] <= cap].copy()
+    fig, ax = plt.subplots(figsize=(10, 5))
+    sns.histplot(
+        data=plot_df,
+        x="tempo_uti",
+        hue="ventilacao_grupo",
+        bins=15,
+        kde=True,
+        element="step",
+        stat="density",
+        common_norm=False,
+        ax=ax,
+    )
+    ax.set_xlabel("Tempo de internação na UTI (dias)")
+    ax.set_ylabel("Densidade")
+    ax.set_title(
+        "Tempo de internação na UTI por ventilação mecânica "
+        f"(até {cap:.0f} dias, percentil 95)"
+    )
+    fig.tight_layout()
+    fig.savefig(path, dpi=120)
+    plt.close(fig)
+    return path
+
+
+def _save_apache_mortality_chart(clean: pd.DataFrame) -> Path | None:
+    apache_df = apache_mortality_table(clean)
+    if apache_df.empty:
+        return None
+    FIGURES_DIR.mkdir(parents=True, exist_ok=True)
+    path = FIGURES_DIR / "apache_mortalidade_observada_vs_estimada.png"
+    fig, ax = plt.subplots(figsize=(9, 5))
+    x = range(len(apache_df))
+    width = 0.35
+    ax.bar(
+        [i - width / 2 for i in x],
+        apache_df["mortalidade_estimada_pct"],
+        width,
+        label="Estimada (referência)",
+        color="lightgray",
+    )
+    ax.bar(
+        [i + width / 2 for i in x],
+        apache_df["mortalidade_observada_pct"],
+        width,
+        label="Observada",
+        color="crimson",
+    )
+    ax.set_xticks(list(x))
+    ax.set_xticklabels(apache_df["faixa_apache"], rotation=0)
+    ax.set_ylabel("Mortalidade (%)")
+    ax.set_xlabel("Faixa APACHE II")
+    ax.set_title("Mortalidade estimada vs observada por faixa APACHE II")
+    ax.legend()
     fig.tight_layout()
     fig.savefig(path, dpi=120)
     plt.close(fig)
@@ -156,37 +230,13 @@ def export_figures(clean: pd.DataFrame, raw: pd.DataFrame) -> list[Path]:
         plt.close(fig)
         paths.append(path)
 
-    apache_df = apache_mortality_table(clean)
-    if not apache_df.empty:
-        FIGURES_DIR.mkdir(parents=True, exist_ok=True)
-        path = FIGURES_DIR / "apache_mortalidade_observada_vs_estimada.png"
-        fig, ax = plt.subplots(figsize=(9, 5))
-        x = range(len(apache_df))
-        width = 0.35
-        ax.bar(
-            [i - width / 2 for i in x],
-            apache_df["mortalidade_estimada_pct"],
-            width,
-            label="Estimada (referência)",
-            color="lightgray",
-        )
-        ax.bar(
-            [i + width / 2 for i in x],
-            apache_df["mortalidade_observada_pct"],
-            width,
-            label="Observada",
-            color="crimson",
-        )
-        ax.set_xticks(list(x))
-        ax.set_xticklabels(apache_df["faixa_apache"], rotation=0)
-        ax.set_ylabel("Mortalidade (%)")
-        ax.set_xlabel("Faixa APACHE II")
-        ax.set_title("Mortalidade estimada vs observada por faixa APACHE II")
-        ax.legend()
-        fig.tight_layout()
-        fig.savefig(path, dpi=120)
-        plt.close(fig)
-        paths.append(path)
+    los_path = _save_los_by_ventilacao_histogram(clean)
+    if los_path is not None:
+        paths.append(los_path)
+
+    apache_path = _save_apache_mortality_chart(clean)
+    if apache_path is not None:
+        paths.append(apache_path)
 
     return paths
 

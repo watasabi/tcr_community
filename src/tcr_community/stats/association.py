@@ -1,12 +1,19 @@
 """Testes de associação bi-variados."""
 
+from __future__ import annotations
+
 from dataclasses import dataclass
 
 import pandas as pd
+from phik import phik_matrix
 from scipy import stats
 
 from tcr_community.cleaning.standardize import simplify_for_association
-from tcr_community.schemas.columns import COL_DESFECHO_PADRONIZADO
+from tcr_community.schemas.columns import (
+    ASSOCIATION_PREDICTORS,
+    COL_APACHE_II,
+    COL_DESFECHO_PADRONIZADO,
+)
 
 FISHER_MIN_CELL = 5
 MIN_GROUPS = 2
@@ -183,3 +190,70 @@ def run_association_battery(
             results.append(chi_square_or_fisher(work, col, target))
 
     return pd.DataFrame([r.__dict__ for r in results])
+
+
+def prepare_association_frame(
+    df: pd.DataFrame,
+    columns: list[str] | None = None,
+    *,
+    target: str = COL_DESFECHO_PADRONIZADO,
+    numeric_cols: list[str] | None = None,
+) -> pd.DataFrame:
+    """Prepara frame com preditoras + alvo para matriz de associação.
+
+    Args:
+        df: Dataset limpo.
+        columns: Preditoras (default: ASSOCIATION_PREDICTORS).
+        target: Coluna alvo incluída na matriz.
+        numeric_cols: Colunas numéricas (não simplificadas).
+
+    Returns:
+        DataFrame só com as colunas pedidas, tipadas para PhiK.
+    """
+    predictors = columns or list(ASSOCIATION_PREDICTORS)
+    numeric_set = set(numeric_cols or [COL_APACHE_II])
+    selected = [c for c in predictors if c in df.columns]
+    if target in df.columns and target not in selected:
+        selected.append(target)
+
+    work = df[selected].copy()
+    for col in selected:
+        if col in numeric_set:
+            work[col] = pd.to_numeric(work[col], errors="coerce")
+        else:
+            if col != target:
+                work[col] = work[col].map(simplify_for_association)
+            work[col] = work[col].astype(object)
+    return work
+
+
+def phik_association_matrix(
+    df: pd.DataFrame,
+    columns: list[str] | None = None,
+    *,
+    target: str = COL_DESFECHO_PADRONIZADO,
+    numeric_cols: list[str] | None = None,
+) -> pd.DataFrame:
+    """Calcula matriz de associação PhiK (0–1) entre variáveis.
+
+    PhiK funciona com misturas de categóricas e contínuas, útil como
+    equivalente de “correlação” em dados clínicos mistos.
+
+    Args:
+        df: Dataset limpo.
+        columns: Preditoras (default: ASSOCIATION_PREDICTORS).
+        target: Coluna alvo incluída na matriz.
+        numeric_cols: Colunas intervalares para o PhiK.
+
+    Returns:
+        Matriz simétrica PhiK indexada pelos nomes das variáveis.
+    """
+    interval = list(numeric_cols or [COL_APACHE_II])
+    work = prepare_association_frame(
+        df,
+        columns=columns,
+        target=target,
+        numeric_cols=interval,
+    )
+    interval_present = [c for c in interval if c in work.columns]
+    return phik_matrix(work, interval_cols=interval_present)
