@@ -11,6 +11,7 @@ Creates:
 
 from __future__ import annotations
 
+import base64
 import datetime
 import json
 import math
@@ -27,6 +28,9 @@ FIGURES_DIR = REPORTS_DIR / "figures"
 ASSOC_FILE = REPORTS_DIR / "association_results.csv"
 PHIK_MATRIX_FILE = REPORTS_DIR / "association_phik_matrix.csv"
 PHIK_FIGURE_FILE = FIGURES_DIR / "association_phik_matrix.png"
+
+# O alias plotly-latest está congelado na v1, que ignora texttemplate.
+PLOTLY_CDN = "https://cdn.plot.ly/plotly-3.0.1.min.js"
 
 CLINICAL_SUMMARY_FILES = {
     "Diagnósticos por categoria": "clin_diagnostico_por_categoria.csv",
@@ -583,7 +587,6 @@ def render_report(
     parts.append("<h2>Association results</h2>")
 
     phik = load_phik_matrix()
-    plotly_loaded = False
     if phik is not None and not phik.empty:
         parts.append("<h3>Matriz de associação PhiK</h3>")
         parts.append(
@@ -597,11 +600,6 @@ def render_report(
             f"{html_escape(str(PHIK_MATRIX_FILE.relative_to(ROOT)))}"
             f"</div>"
         )
-        parts.append(
-            '<script src="https://cdn.plot.ly/plotly-latest.min.js">'
-            "</script>"
-        )
-        plotly_loaded = True
         plot_id = "phik-heatmap"
         parts.append(f'<div id="{plot_id}" class="plot"></div>')
         parts.append(phik_heatmap_html(phik, plot_id=plot_id, theme=theme))
@@ -630,11 +628,6 @@ def render_report(
                 f"{html_escape(str(ASSOC_FILE.relative_to(ROOT)))}, "
                 f"linhas: {len(assoc)}</div>"
             )
-            if not plotly_loaded:
-                parts.append(
-                    '<script src="https://cdn.plot.ly/plotly-latest.min.js">'
-                    "</script>"
-                )
             parts.append(
                 '<details open><summary class="small">'
                 "Preview, estatísticas e plots (client-side)</summary>"
@@ -798,7 +791,8 @@ def render_report(
         parts.append(
             f'<p class="note">Todas as imagens em '
             f"<code>reports/figures/</code> "
-            f"({len(figure_files)} arquivos).</p>"
+            f"({len(figure_files)} arquivos), embutidas neste arquivo: "
+            f"continuam visíveis após download ou envio por e-mail.</p>"
         )
         img_style = (
             ""
@@ -807,14 +801,13 @@ def render_report(
         )
         for fig_path in figure_files:
             caption = figure_caption(fig_path.name)
-            rel = fig_path.relative_to(REPORTS_DIR)
             parts.append('<div class="figure-card">')
             parts.append(f"<h3>{html_escape(caption)}</h3>")
             parts.append(
                 f'<div class="meta">{html_escape(fig_path.name)}</div>'
             )
             parts.append(
-                f'<img src="{html_escape(str(rel))}" '
+                f'<img src="{figure_data_uri(fig_path)}" '
                 f'alt="{html_escape(caption)}"{img_style} />'
             )
             parts.append("</div>")
@@ -946,6 +939,7 @@ def render_report(
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{title}</title>
+  <script src="{PLOTLY_CDN}" charset="utf-8"></script>
   <style>{css}</style>
 </head>
 <body>
@@ -967,6 +961,12 @@ def figure_caption(filename: str) -> str:
         return FIGURE_CAPTIONS[filename]
     stem = Path(filename).stem.replace("_", " ").strip()
     return stem[:1].upper() + stem[1:] if stem else filename
+
+
+def figure_data_uri(path: Path) -> str:
+    """Converte PNG em data URI para o HTML ficar autocontido."""
+    encoded = base64.b64encode(path.read_bytes()).decode("ascii")
+    return f"data:image/png;base64,{encoded}"
 
 
 def list_figure_files() -> list[Path]:
