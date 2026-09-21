@@ -1,0 +1,5 @@
+cluster,n,comorbidades,ventilacao_mecanica,drogas_vasoativas,transfusao_sanguinea,hemodialise,procedimento_cirurgico,cuidados_paliativos,diagnostico_principal,genero,faixa_etaria,local_residencia,escala_apache_ii,tempo_internacao_uti
+0,10,SIM,SIM,SIM,SIM,NAO,SIM,NAO,ACIDENTE_VASCULAR_CEREBRAL_ISQUEMICO,M,32,SIM,32.6,55.2
+1,77,SIM,SIM,SIM,NAO,NAO,NAO,NAO,SEPTICEMIA,F,80,SIM,35.51948051948052,5.597402597402597
+2,48,SIM,SIM,SIM,NAO,NAO,NAO,SIM,PNEUMONIA_NE,M,76,SIM,28.375,23.9375
+3,70,SIM,SIM,SIM,NAO,NAO,NAO,NAO,DPOC_EXACERBADO,M,83,SIM,19.52857142857143,6.1

@@ -22,6 +22,11 @@ Este diretório contém os gráficos gerados a partir do dataset processado.
 - `tempo_internacao_por_dispositivo_invasivo.png` — tempo de internação x dispositivo invasivo
 - `obito_por_comorbidades.png` — desfecho por comorbidades
 - `obito_por_vicios_top.png` — desfecho por principais categorias de vícios
+- `cluster_kprototypes_elbow.png` — curva de custo por k (K-Prototypes), usada para escolher o número de clusters
+- `mca_scatter_by_desfecho.png` — pacientes no espaço MCA (2D), coloridos por desfecho
+- `mca_scatter_by_cluster.png` — pacientes no espaço MCA (2D), coloridos pelo cluster hierárquico
+- `mca_dendrogram.png` — dendrograma do clustering hierárquico sobre coordenadas MCA
+- `tree_decision_tree.png` — árvore de decisão completa (preditores do desfecho)
 
 ## Como usar
 

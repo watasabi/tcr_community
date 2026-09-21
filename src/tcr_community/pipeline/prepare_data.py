@@ -7,8 +7,9 @@ import pandas as pd
 from tcr_community.cleaning.standardize import clean_and_standardize
 from tcr_community.io.loaders import DEFAULT_EXCEL_PATH, load_tcr_excel
 
-INTERIM_PATH = Path("/home/rwp/code/tcr_community/data/external/COLETA_DE_DADOS_TCR.xlsx")
-PROCESSED_PATH = Path("/home/rwp/code/tcr_community/data/processed/tcr_patients_clean.parquet")
+ROOT = Path(__file__).resolve().parents[3]
+INTERIM_PATH = ROOT / "data" / "interim" / "tcr_patients_raw.parquet"
+PROCESSED_PATH = ROOT / "data" / "processed" / "tcr_patients_clean.parquet"
 
 
 def _stringify_objects(df: pd.DataFrame) -> pd.DataFrame:

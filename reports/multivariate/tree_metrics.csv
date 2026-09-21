@@ -1,0 +1,6 @@
+metric,value
+n_train,153.0
+n_test,52.0
+train_accuracy,0.9085
+test_accuracy,0.8077
+max_depth,4.0

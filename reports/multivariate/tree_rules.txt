@@ -1,0 +1,31 @@
+|--- escala_apache_ii <= 17.50
+|   |--- cuidados_paliativos_SIM <= 0.50
+|   |   |--- drogas_vasoativas_SIM <= 0.50
+|   |   |   |--- ventilacao_mecanica_NAO <= 0.50
+|   |   |   |   |--- class: ALTA
+|   |   |   |--- ventilacao_mecanica_NAO >  0.50
+|   |   |   |   |--- class: ALTA
+|   |   |--- drogas_vasoativas_SIM >  0.50
+|   |   |   |--- procedimento_cirurgico_SIM <= 0.50
+|   |   |   |   |--- class: ALTA
+|   |   |   |--- procedimento_cirurgico_SIM >  0.50
+|   |   |   |   |--- class: OBITO
+|   |--- cuidados_paliativos_SIM >  0.50
+|   |   |--- class: OBITO
+|--- escala_apache_ii >  17.50
+|   |--- escala_apache_ii <= 21.50
+|   |   |--- cuidados_paliativos_NAO <= 0.50
+|   |   |   |--- class: OBITO
+|   |   |--- cuidados_paliativos_NAO >  0.50
+|   |   |   |--- procedimento_cirurgico_SIM <= 0.50
+|   |   |   |   |--- class: TRANSFERENCIA
+|   |   |   |--- procedimento_cirurgico_SIM >  0.50
+|   |   |   |   |--- class: OBITO
+|   |--- escala_apache_ii >  21.50
+|   |   |--- cuidados_paliativos_SIM <= 0.50
+|   |   |   |--- comorbidades_SIM <= 0.50
+|   |   |   |   |--- class: OBITO
+|   |   |   |--- comorbidades_SIM >  0.50
+|   |   |   |   |--- class: OBITO
+|   |   |--- cuidados_paliativos_SIM >  0.50
+|   |   |   |--- class: OBITO

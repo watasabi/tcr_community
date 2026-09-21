@@ -28,6 +28,18 @@ FIGURES_DIR = REPORTS_DIR / "figures"
 ASSOC_FILE = REPORTS_DIR / "association_results.csv"
 PHIK_MATRIX_FILE = REPORTS_DIR / "association_phik_matrix.csv"
 PHIK_FIGURE_FILE = FIGURES_DIR / "association_phik_matrix.png"
+MULTIVARIATE_DIR = REPORTS_DIR / "multivariate"
+KPROTOTYPES_PROFILE_FILE = MULTIVARIATE_DIR / "cluster_kprototypes_profile.csv"
+KPROTOTYPES_OUTCOME_FILE = (
+    MULTIVARIATE_DIR / "cluster_kprototypes_vs_outcome.csv"
+)
+MCA_INERTIA_FILE = MULTIVARIATE_DIR / "mca_explained_inertia.csv"
+TREE_IMPORTANCE_FILE = MULTIVARIATE_DIR / "tree_feature_importance.csv"
+TREE_METRICS_FILE = MULTIVARIATE_DIR / "tree_metrics.csv"
+TREE_CLASSIFICATION_REPORT_FILE = (
+    MULTIVARIATE_DIR / "tree_classification_report.csv"
+)
+TREE_RULES_FILE = MULTIVARIATE_DIR / "tree_rules.txt"
 
 # O alias plotly-latest está congelado na v1, que ignora texttemplate.
 PLOTLY_CDN = "https://cdn.plot.ly/plotly-3.0.1.min.js"
@@ -83,6 +95,11 @@ FIGURE_CAPTIONS: dict[str, str] = {
     "obito_por_vicios_top.png": "Desfecho por principais vícios",
     "rcp_vs_cuidados_paliativos.png": "RCP × cuidados paliativos",
     "association_phik_matrix.png": "Matriz de associação PhiK",
+    "cluster_kprototypes_elbow.png": ("Curva de custo por k (K-Prototypes)"),
+    "mca_scatter_by_desfecho.png": "Pacientes no espaço MCA, por desfecho",
+    "mca_scatter_by_cluster.png": "Pacientes no espaço MCA, por cluster",
+    "mca_dendrogram.png": "Dendrograma (clustering hierárquico via MCA)",
+    "tree_decision_tree.png": "Árvore de decisão do desfecho",
 }
 
 
@@ -545,6 +562,100 @@ def phik_heatmap_html(
 """
 
 
+def _render_kprototypes_section(parts: list[str], theme: str) -> None:
+    """Adiciona a seção de clustering K-Prototypes ao HTML."""
+    section_id = ' id="kprototypes"' if theme == "minimal" else ""
+    parts.append(f'<div class="section"{section_id}>')
+    parts.append("<h2>Clusters (K-Prototypes)</h2>")
+    parts.append(
+        '<p class="note">Agrupamento de pacientes considerando '
+        "variáveis categóricas e numéricas ao mesmo tempo. Ver "
+        "<code>reports/multivariate/kprototypes_results.md</code> "
+        "para a explicação completa.</p>"
+    )
+    if KPROTOTYPES_PROFILE_FILE.exists():
+        profile = pd.read_csv(KPROTOTYPES_PROFILE_FILE)
+        parts.append("<h3>Perfil de cada cluster</h3>")
+        parts.append(df_table_html(profile))
+    if KPROTOTYPES_OUTCOME_FILE.exists():
+        outcome = pd.read_csv(KPROTOTYPES_OUTCOME_FILE)
+        parts.append("<h3>Cluster × desfecho</h3>")
+        parts.append(df_table_html(outcome))
+    if not KPROTOTYPES_PROFILE_FILE.exists():
+        parts.append(
+            '<div class="note">Execute '
+            "<code>uv run python reports/export_kprototypes.py</code> "
+            "para gerar esta seção.</div>"
+        )
+    parts.append("</div>")
+
+
+def _render_mca_section(parts: list[str], theme: str) -> None:
+    """Adiciona a seção de MCA + clustering hierárquico/k-means ao HTML."""
+    section_id = ' id="mca"' if theme == "minimal" else ""
+    parts.append(f'<div class="section"{section_id}>')
+    parts.append("<h2>MCA e Clustering Hierárquico</h2>")
+    parts.append(
+        '<p class="note">Redução das variáveis categóricas a poucas '
+        "dimensões numéricas (MCA), com clustering hierárquico e "
+        "k-means sobre essas coordenadas. Ver "
+        "<code>reports/multivariate/mca_hierarchical_results.md</code> "
+        "para a explicação completa, incluindo como ler o gráfico de "
+        "dispersão e o dendrograma.</p>"
+    )
+    if MCA_INERTIA_FILE.exists():
+        inertia = pd.read_csv(MCA_INERTIA_FILE)
+        parts.append("<h3>Variância explicada por dimensão</h3>")
+        parts.append(df_table_html(inertia))
+    else:
+        parts.append(
+            '<div class="note">Execute '
+            "<code>uv run python reports/export_mca_hierarchical.py"
+            "</code> para gerar esta seção.</div>"
+        )
+    parts.append("</div>")
+
+
+def _render_tree_section(parts: list[str], theme: str) -> None:
+    """Adiciona a seção de árvore de decisão ao HTML."""
+    section_id = ' id="tree"' if theme == "minimal" else ""
+    parts.append(f'<div class="section"{section_id}>')
+    parts.append("<h2>Árvore de Decisão</h2>")
+    parts.append(
+        '<p class="note">Modelo interpretável para prever o desfecho a '
+        "partir de variáveis clínicas. Ver "
+        "<code>reports/multivariate/decision_tree_results.md</code> "
+        "para a explicação completa e limitações.</p>"
+    )
+    if TREE_METRICS_FILE.exists():
+        metrics = pd.read_csv(TREE_METRICS_FILE)
+        parts.append("<h3>Métricas do modelo</h3>")
+        parts.append(df_table_html(metrics))
+    if TREE_IMPORTANCE_FILE.exists():
+        importance = pd.read_csv(TREE_IMPORTANCE_FILE)
+        parts.append("<h3>Importância das variáveis</h3>")
+        parts.append(df_table_html(importance))
+    if TREE_CLASSIFICATION_REPORT_FILE.exists():
+        class_report = pd.read_csv(TREE_CLASSIFICATION_REPORT_FILE)
+        parts.append("<h3>Desempenho por categoria (conjunto de teste)</h3>")
+        parts.append(df_table_html(class_report))
+    if TREE_RULES_FILE.exists():
+        rules = html_escape(TREE_RULES_FILE.read_text())
+        parts.append(
+            '<details><summary class="small">Regras da árvore '
+            "(texto)</summary>"
+        )
+        parts.append(f'<pre class="preview">{rules}</pre>')
+        parts.append("</details>")
+    if not TREE_METRICS_FILE.exists():
+        parts.append(
+            '<div class="note">Execute '
+            "<code>uv run python reports/export_decision_tree.py</code> "
+            "para gerar esta seção.</div>"
+        )
+    parts.append("</div>")
+
+
 def render_report(
     out_path: Path,
     *,
@@ -572,14 +683,15 @@ def render_report(
         parts.append('<nav class="toc" aria-label="Seções">')
         parts.append('<a href="#associacao">Associações</a>')
         parts.append('<a href="#clinica">Análise clínica</a>')
+        parts.append('<a href="#kprototypes">Clusters (K-Prototypes)</a>')
+        parts.append('<a href="#mca">MCA e Hierárquico</a>')
+        parts.append('<a href="#tree">Árvore de decisão</a>')
         parts.append('<a href="#figuras">Figuras</a>')
         parts.append('<a href="#descritivos">CSVs descritivos</a>')
         parts.append("</nav>")
         parts.append("</header>")
     else:
-        parts.append(
-            f"<h1>Relatório de Dados — gerado {generated_at}</h1>"
-        )
+        parts.append(f"<h1>Relatório de Dados — gerado {generated_at}</h1>")
 
     # Association results
     section_id = ' id="associacao"' if theme == "minimal" else ""
@@ -604,13 +716,10 @@ def render_report(
         parts.append(f'<div id="{plot_id}" class="plot"></div>')
         parts.append(phik_heatmap_html(phik, plot_id=plot_id, theme=theme))
         parts.append(
-            '<details><summary class="small">'
-            "Tabela da matriz PhiK</summary>"
+            '<details><summary class="small">Tabela da matriz PhiK</summary>'
         )
         parts.append(
-            phik.round(3)
-            .fillna("")
-            .to_html(classes="preview-table", border=0)
+            phik.round(3).fillna("").to_html(classes="preview-table", border=0)
         )
         parts.append("</details>")
     else:
@@ -632,21 +741,14 @@ def render_report(
                 '<details open><summary class="small">'
                 "Preview, estatísticas e plots (client-side)</summary>"
             )
-            parts.append(
-                '<h3 class="small">Preview (primeiras linhas)</h3>'
-            )
+            parts.append('<h3 class="small">Preview (primeiras linhas)</h3>')
             parts.append(df_to_html_preview(assoc))
-            parts.append(
-                '<h3 class="small">Estatísticas sumarizadas</h3>'
-            )
+            parts.append('<h3 class="small">Estatísticas sumarizadas</h3>')
             parts.append(describe_df_html(assoc))
 
             # p-value bar chart data for client-side Plotly
             try:
-                if (
-                    "p_value" in assoc.columns
-                    and "variable" in assoc.columns
-                ):
+                if "p_value" in assoc.columns and "variable" in assoc.columns:
                     dfp = assoc.copy()
                     dfp["p_value"] = pd.to_numeric(
                         dfp["p_value"], errors="coerce"
@@ -657,12 +759,9 @@ def render_report(
                         by="p_value", ascending=True
                     ).reset_index(drop=True)
                     dfp["-log10_p"] = [
-                        -math.log10(max(v, 1e-300))
-                        for v in dfp["p_value"]
+                        -math.log10(max(v, 1e-300)) for v in dfp["p_value"]
                     ]
-                    dfp["significant"] = (
-                        dfp["p_value"] < 0.05
-                    ).astype(int)
+                    dfp["significant"] = (dfp["p_value"] < 0.05).astype(int)
 
                     vars_full = dfp["variable"].astype(str).tolist()
                     vars_short = [
@@ -694,13 +793,10 @@ def render_report(
                         ]
 
                     plot_id = "assoc-plot"
-                    parts.append(
-                        f'<div id="{plot_id}" class="plot"></div>'
-                    )
+                    parts.append(f'<div id="{plot_id}" class="plot"></div>')
                     height = max(300, min(1200, 50 * len(vars_short)))
 
-                    js = (
-                        """
+                    js = """
 <script>
   (function(){
     const vars = %s;
@@ -719,15 +815,13 @@ def render_report(
     Plotly.newPlot('%s', data, layout, {responsive: true});
   })();
 </script>
-"""
-                        % (
-                            json.dumps(vars_short),
-                            json.dumps(vars_full),
-                            json.dumps(vals),
-                            json.dumps(colors),
-                            height,
-                            plot_id,
-                        )
+""" % (
+                        json.dumps(vars_short),
+                        json.dumps(vars_full),
+                        json.dumps(vals),
+                        json.dumps(colors),
+                        height,
+                        plot_id,
                     )
                     parts.append(js)
                 else:
@@ -782,6 +876,10 @@ def render_report(
         )
     parts.append("</div>")
 
+    _render_kprototypes_section(parts, theme)
+    _render_mca_section(parts, theme)
+    _render_tree_section(parts, theme)
+
     # All figures from reports/figures/
     section_id = ' id="figuras"' if theme == "minimal" else ""
     parts.append(f'<div class="section"{section_id}>')
@@ -827,27 +925,40 @@ def render_report(
             try:
                 df = pd.read_csv(p)
                 parts.append(f"<h3>{html_escape(p.name)}</h3>")
-                parts.append(f'<div class="meta">linhas: {len(df)}, colunas: {len(df.columns)}</div>')
-                parts.append('<details><summary class="small">Preview, estatísticas e plots</summary>')
+                parts.append(
+                    f'<div class="meta">linhas: {len(df)}, colunas: {len(df.columns)}</div>'
+                )
+                parts.append(
+                    '<details><summary class="small">Preview, estatísticas e plots</summary>'
+                )
                 parts.append(df_to_html_preview(df))
                 parts.append(describe_df_html(df))
 
                 # simple client-side plots
                 try:
-                    nums = df.select_dtypes(include='number').columns.tolist()
-                    cats = [c for c in df.columns if not pd.api.types.is_numeric_dtype(df[c])]
+                    nums = df.select_dtypes(include="number").columns.tolist()
+                    cats = [
+                        c
+                        for c in df.columns
+                        if not pd.api.types.is_numeric_dtype(df[c])
+                    ]
                     if nums:
                         coln = nums[0]
                         series = df[coln].dropna()
                         if len(series) > 0:
                             if series.nunique() <= 10:
-                                vc = series.astype(str).value_counts().sort_values(ascending=False)
+                                vc = (
+                                    series.astype(str)
+                                    .value_counts()
+                                    .sort_values(ascending=False)
+                                )
                                 labels = vc.index.tolist()
                                 values = vc.values.tolist()
                                 pid = f"plot-{p.name}-num"
-                                parts.append(f'<div id="{pid}" class="plot"></div>')
-                                js = (
-                                    """
+                                parts.append(
+                                    f'<div id="{pid}" class="plot"></div>'
+                                )
+                                js = """
 <script>
   (function(){
     const labels = %s;
@@ -857,18 +968,17 @@ def render_report(
     Plotly.newPlot('%s', data, layout, {responsive: true});
   })();
 </script>
-"""
-                                    % (json.dumps(labels), json.dumps(values), html_escape(coln), pid)
-                                )
+""" % (json.dumps(labels), json.dumps(values), html_escape(coln), pid)
                                 parts.append(js)
                             else:
                                 counts, bins = np.histogram(series, bins=20)
                                 centers = ((bins[:-1] + bins[1:]) / 2).tolist()
                                 counts = counts.tolist()
                                 pid = f"plot-{p.name}-num"
-                                parts.append(f'<div id="{pid}" class="plot"></div>')
-                                js = (
-                                    """
+                                parts.append(
+                                    f'<div id="{pid}" class="plot"></div>'
+                                )
+                                js = """
 <script>
   (function(){
     const x = %s;
@@ -878,8 +988,12 @@ def render_report(
     Plotly.newPlot('%s', data, layout, {responsive: true});
   })();
 </script>
-"""
-                                    % (json.dumps(centers), json.dumps(counts), html_escape(coln), html_escape(coln), pid)
+""" % (
+                                    json.dumps(centers),
+                                    json.dumps(counts),
+                                    html_escape(coln),
+                                    html_escape(coln),
+                                    pid,
                                 )
                                 parts.append(js)
                     if cats:
@@ -889,8 +1003,7 @@ def render_report(
                         values = vc.values.tolist()
                         pid2 = f"plot-{p.name}-cat"
                         parts.append(f'<div id="{pid2}" class="plot"></div>')
-                        js2 = (
-                            """
+                        js2 = """
 <script>
   (function(){
     const labels = %s;
@@ -900,18 +1013,22 @@ def render_report(
     Plotly.newPlot('%s', data, layout, {responsive: true});
   })();
 </script>
-"""
-                            % (json.dumps(labels), json.dumps(values), html_escape(colc), pid2)
-                        )
+""" % (json.dumps(labels), json.dumps(values), html_escape(colc), pid2)
                         parts.append(js2)
                 except Exception:
-                    parts.append('<div class="note">Erro ao gerar plots para este CSV.</div>')
+                    parts.append(
+                        '<div class="note">Erro ao gerar plots para este CSV.</div>'
+                    )
 
                 parts.append("</details>")
             except Exception as e:
-                parts.append(f'<div class="note">Erro lendo {html_escape(p.name)}: {html_escape(str(e))}</div>')
+                parts.append(
+                    f'<div class="note">Erro lendo {html_escape(p.name)}: {html_escape(str(e))}</div>'
+                )
         else:
-            parts.append('<div class="note">Nenhum CSV descritivo encontrado em reports/descriptive/</div>')
+            parts.append(
+                '<div class="note">Nenhum CSV descritivo encontrado em reports/descriptive/</div>'
+            )
 
     parts.append("</div>")
 
@@ -984,18 +1101,25 @@ def main() -> None:
     import subprocess
     import sys
 
-    script = Path(__file__).parent / "export_clinical_summaries.py"
-    result = subprocess.run(
-        [sys.executable, str(script)],
-        capture_output=True,
-        text=True,
-        check=False,
-    )
-    if result.returncode != 0:
-        print(
-            "Aviso: exportação clínica não executada: "
-            f"{result.stderr.strip() or result.stdout.strip()}"
+    export_scripts = [
+        "export_clinical_summaries.py",
+        "export_kprototypes.py",
+        "export_mca_hierarchical.py",
+        "export_decision_tree.py",
+    ]
+    for script_name in export_scripts:
+        script = Path(__file__).parent / script_name
+        result = subprocess.run(
+            [sys.executable, str(script)],
+            capture_output=True,
+            text=True,
+            check=False,
         )
+        if result.returncode != 0:
+            print(
+                f"Aviso: {script_name} não executado: "
+                f"{result.stderr.strip() or result.stdout.strip()}"
+            )
 
     phik = export_phik_matrix()
     if phik is not None:
