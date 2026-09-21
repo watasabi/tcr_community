@@ -1068,6 +1068,106 @@ def render_report(
     out_path.write_text(html_doc, encoding="utf-8")
 
 
+FASE2_FIGURE_NAMES: tuple[str, ...] = (
+    "cluster_kprototypes_elbow.png",
+    "mca_scatter_by_desfecho.png",
+    "mca_scatter_by_cluster.png",
+    "mca_dendrogram.png",
+    "tree_decision_tree.png",
+)
+
+
+def render_fase2_report(out_path: Path) -> None:
+    """Renderiza relatório HTML dedicado à Fase 2 (tema minimal).
+
+    Contém apenas as três seções de análise multivariada (K-Prototypes,
+    MCA + hierárquico, árvore de decisão) e as figuras correspondentes —
+    sem associação bivariada nem análise descritiva clínica, que ficam
+    em ``profile_report_minimal.html``.
+
+    Args:
+        out_path: Caminho de destino do HTML.
+    """
+    generated_at = datetime.datetime.now().isoformat(
+        sep=" ", timespec="seconds"
+    )
+    parts: list[str] = []
+
+    parts.append('<div class="page">')
+    parts.append('<header class="hero">')
+    parts.append('<p class="eyebrow">tcr_community · Fase 2</p>')
+    parts.append("<h1>Estatística Multivariada</h1>")
+    parts.append(
+        '<p class="subtitle">Clustering K-Prototypes, MCA + '
+        "clustering hierárquico/k-means e árvore de decisão — "
+        f"gerado em {html_escape(generated_at)}</p>"
+    )
+    parts.append('<nav class="toc" aria-label="Seções">')
+    parts.append('<a href="#kprototypes">Clusters (K-Prototypes)</a>')
+    parts.append('<a href="#mca">MCA e Hierárquico</a>')
+    parts.append('<a href="#tree">Árvore de decisão</a>')
+    parts.append('<a href="#figuras">Figuras</a>')
+    parts.append("</nav>")
+    parts.append("</header>")
+
+    _render_kprototypes_section(parts, "minimal")
+    _render_mca_section(parts, "minimal")
+    _render_tree_section(parts, "minimal")
+
+    # Figuras da Fase 2 apenas (filtra o diretório compartilhado)
+    parts.append('<div class="section" id="figuras">')
+    parts.append("<h2>Figuras</h2>")
+    fase2_figures = [
+        FIGURES_DIR / name
+        for name in FASE2_FIGURE_NAMES
+        if (FIGURES_DIR / name).exists()
+    ]
+    if fase2_figures:
+        for fig_path in fase2_figures:
+            caption = figure_caption(fig_path.name)
+            parts.append('<div class="figure-card">')
+            parts.append(f"<h3>{html_escape(caption)}</h3>")
+            parts.append(
+                f'<div class="meta">{html_escape(fig_path.name)}</div>'
+            )
+            parts.append(
+                f'<img src="{figure_data_uri(fig_path)}" '
+                f'alt="{html_escape(caption)}" />'
+            )
+            parts.append("</div>")
+    else:
+        parts.append(
+            '<div class="note">Nenhuma figura da Fase 2 encontrada em '
+            "<code>reports/figures/</code>. Execute os scripts "
+            "<code>export_kprototypes.py</code>, "
+            "<code>export_mca_hierarchical.py</code> e "
+            "<code>export_decision_tree.py</code>.</div>"
+        )
+    parts.append("</div>")
+
+    parts.append(
+        '<p class="footer">Gerado por generate_profile_report.py'
+        " · render_fase2_report</p>"
+    )
+    parts.append("</div>")  # .page
+
+    html_doc = f"""<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fase 2 — Estatística Multivariada</title>
+  <style>{CSS_MINIMAL}</style>
+</head>
+<body>
+{"".join(parts)}
+</body>
+</html>
+"""
+
+    out_path.write_text(html_doc, encoding="utf-8")
+
+
 def html_escape(s: str) -> str:
     return (s or "").replace("<", "&lt;").replace(">", "&gt;")
 
@@ -1133,10 +1233,13 @@ def main() -> None:
     # Classic kept for compatibility; minimal is the Apple-inspired version.
     classic = out_dir / "profile_report.html"
     minimal = out_dir / "profile_report_minimal.html"
+    fase2 = out_dir / "profile_report_fase2.html"
     render_report(classic, theme="classic")
     render_report(minimal, theme="minimal")
+    render_fase2_report(fase2)
     print(f"Gerado (clássico): {classic}")
     print(f"Gerado (minimal):  {minimal}")
+    print(f"Gerado (Fase 2):   {fase2}")
 
 
 if __name__ == "__main__":
